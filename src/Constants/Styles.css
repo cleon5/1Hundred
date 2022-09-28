@@ -23,15 +23,22 @@
 .Quess {
     position: absolute;
     bottom: 2%;
-    display: flex;
-    margin: 0, auto;
+    align-self: center;
+
 }
 .button {
     margin: -10%;
-    height: 30px;
-    width: 30px;
+    height: 2.3em;
+    width: 2.5em;
     font-size: 10px;
-    margin-left: 5px;
+    margin: 1px, auto;
+    padding-inline: 5px;
+    border-color: transparent;
+    background-color: rgba(240, 248, 255, 0);
+    
+}
+.button:hover {
+    /*Backgrouncolor agregar uno que convine */ 
 }
 @media screen and (max-width: 880px) {
     .Padin h5 {
@@ -54,14 +61,13 @@
     .Quess {
         position: absolute;
         bottom: 0%;
-        display: flex;
-        margin: 0, auto;
+        max-width: 17%;
     }
     .button {
-        margin: -10%;
-        height: 10px;
-        width: 5px;
-        font-size: 6px;
-        margin-left: 1px;
+        
+        height: 2em;
+        width: 1.5em;
+        font-size: 16px;
     }
+    
 }
