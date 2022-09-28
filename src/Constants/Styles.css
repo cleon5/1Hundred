@@ -3,15 +3,26 @@
     --imgHeight: 180px;
   }
 .Padin {
-    margin: 5px;
-    width: 9%;
+    margin: 3px;
+    width: 9.3%;
     text-align: center;
 }
 .Padin h5 {
-    font-size: 10px;
+    font-size:1vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+    padding-inline: 3px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 .Padin h6 {
-    font-size: 9px;
+    font-size:1vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+    padding: 0, 5px;
+    padding-bottom: 5px;
 }
 .Poster{
     height: 100%;
@@ -42,10 +53,12 @@
 }
 @media screen and (max-width: 880px) {
     .Padin h5 {
-        font-size: 10px;
+        margin: 0px;
+        font-size:2vw;
     }
     .Padin h6 {
-        font-size: 9px;
+        font-size:2vw;
+
     }
     .Poster{
         height: 100%;
@@ -54,8 +67,8 @@
         position: relative;
     }
     .Padin {
-        margin: 5px;
-        width: 17%;
+        margin: 3px;
+        width: 18.5%;
         text-align: center;
     }
     .Quess {
