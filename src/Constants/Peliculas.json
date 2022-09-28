@@ -5,7 +5,7 @@
         "Nombre": "Volver al futuro",
         "Director": "Robert Zemeckis",
         "Poster": "https://www.cinemascomics.com/wp-content/uploads/2020/09/regreso-al-futuro-4-reparto.jpg",
-        "Partes": 3
+        "Partes": 1
       },
       {
         "id": 2,
@@ -13,6 +13,7 @@
         "Director": "Christopher Nolan",
         "Poster": "https://images-na.ssl-images-amazon.com/images/I/91e4IzkgrKL.jpg",
         "Partes": 1
+        
       },
     {
         "id": 3,
@@ -33,7 +34,42 @@
         "Nombre": "Batman the dark knight",
         "Director": "Christopher Nolan",
         "Poster": "https://m.media-amazon.com/images/I/81dwqKFOfwL._AC_SL1425_.jpg",
-        "Partes": 3
+        "Partes": 3,
+        "Preguntas": [
+          {
+            "id":1,
+            "Pregunta": "Modelo de auto que se usa como maquina de tiempo",
+            "Correcta": "DeLorean",
+            "Respuestas": [
+              "Camaro",
+              "DeLorean",
+              "Mustang gt",
+              "Ninguno"
+            ]
+          },
+           {
+            "id":2,
+            "Pregunta": "2Modelo sde auto que se usa como maquina de tiempo",
+            "Correcta": "DeLorean",
+            "Respuestas": [
+              "Camaro",
+              "DeLorean",
+              "Mustang gt",
+              "Ninguno"
+            ]
+          },
+          {
+            "id":3,
+            "Pregunta": "3Modelo ssde auto que se usa como maquina de tiempo",
+            "Correcta": "DeLorean",
+            "Respuestas": [
+              "Camaro",
+              "DeLorean",
+              "Mustang gt",
+              "Ninguno"
+            ]
+          }
+        ]
       },
       {
         "id": 6,
@@ -61,7 +97,7 @@
         "Nombre": "El Señor de los Anillos",
         "Director": "Peter Jackson",
         "Poster": "https://m.media-amazon.com/images/I/71TZ8BmoZqL._AC_SY741_.jpg",
-        "Partes": 3
+        "Partes": 1
       },
        {
         "id": 10,

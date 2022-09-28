@@ -12,18 +12,14 @@ export default class Home extends Component {
     };
   }
   componentDidMount() {
-    //console.log('componentDidMount');
     this.renderList();
-    //console.log(this.state.Pelicula)
-    //console.log(this.state.Pelicula.length )
   }
   renderList = () => {
-    for (let i = 0; i <= 10; i++) {
-      return this.state.Pelicula.map((item2) => (
-        this.state.Pelicula.map((item) => (
+    return this.state.Pelicula.map((item2) =>
+      this.state.Pelicula.map((item) => (
         <PeliculaComp key={item.id} Pelicula={item} />
-         ) )))
-    }
+      ))
+    );
   };
 
   render() {
@@ -32,8 +28,8 @@ export default class Home extends Component {
         <Navbar brand="1-Hundred Peliculas" />
 
         <div className="d-flex flex-wrap justify-content-center">
-            {this.renderList()}
-            </div>
+          {this.renderList()}
+        </div>
       </div>
     );
   }
