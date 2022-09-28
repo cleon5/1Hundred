@@ -1,0 +1,41 @@
+:root {
+    --height: 180px;
+    --imgHeight: 180px;
+  }
+.Padin {
+    margin: 5px;
+    width: 9%;
+    text-align: center;
+}
+.Padin h5 {
+    font-size: 10px;
+}
+.Padin h6 {
+    font-size: 9px;
+}
+.Poster{
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    position: relative;
+}
+
+@media screen and (max-width: 880px) {
+    .Padin h5 {
+        font-size: 10px;
+    }
+    .Padin h6 {
+        font-size: 9px;
+    }
+    .Poster{
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        position: relative;
+    }
+    .Padin {
+        margin: 5px;
+        width: 17%;
+        text-align: center;
+    }
+}

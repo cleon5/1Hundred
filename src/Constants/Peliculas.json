@@ -1,0 +1,74 @@
+{
+    "Peliculas": [
+      {
+        "id": 1,
+        "Nombre": "Volver al futuro",
+        "Director": "Robert Zemeckis",
+        "Poster": "https://www.cinemascomics.com/wp-content/uploads/2020/09/regreso-al-futuro-4-reparto.jpg",
+        "Partes": 3
+      },
+      {
+        "id": 2,
+        "Nombre": "Interestelar",
+        "Director": "Christopher Nolan",
+        "Poster": "https://images-na.ssl-images-amazon.com/images/I/91e4IzkgrKL.jpg",
+        "Partes": 1
+      },
+    {
+        "id": 3,
+        "Nombre": "Club de la pelea",
+        "Director": "David Fincher",
+        "Poster": "https://www.filmalcinema.com/wp-content/uploads/2017/03/poster-85.jpg",
+        "Partes": 1
+      },
+       {
+        "id": 4,
+        "Nombre": "La naranja mecánica",
+        "Director": "Stanley Kubrick",
+        "Poster": "https://cdn.culturagenial.com/es/imagenes/1971-a-clockwork-orange.jpg",
+        "Partes": 1
+      },
+      {
+        "id": 5,
+        "Nombre": "Batman the dark knight",
+        "Director": "Christopher Nolan",
+        "Poster": "https://m.media-amazon.com/images/I/81dwqKFOfwL._AC_SL1425_.jpg",
+        "Partes": 3
+      },
+      {
+        "id": 6,
+        "Nombre": "Dune",
+        "Director": "Denis Villeneuve",
+        "Poster": "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/02d59c4ad8a69d99f49fc12f5b75ed52bfaf378c6a7b07f3515fd4d9441d4264._RI_V_TTW_.jpg",
+        "Partes": 1
+      },
+      {
+        "id": 7,
+        "Nombre": "WALL·E",
+        "Director": "Andrew Stanton",
+        "Poster": "https://m.media-amazon.com/images/I/51iA8isg59L.jpg",
+        "Partes": 1
+      },
+      {
+        "id": 8,
+        "Nombre": "Joker",
+        "Director": "Todd Phillips",
+        "Poster": "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/93605d6f3b14b7c6addfd28ffde1a4db2f7d320cf601a84a1d98c4d314f9de77._RI_V_TTW_.jpg",
+        "Partes": 1
+      },
+      {
+        "id": 9,
+        "Nombre": "El Señor de los Anillos",
+        "Director": "Peter Jackson",
+        "Poster": "https://m.media-amazon.com/images/I/71TZ8BmoZqL._AC_SY741_.jpg",
+        "Partes": 3
+      },
+       {
+        "id": 10,
+        "Nombre": "Watchmen",
+        "Director": "Zack Snyder",
+        "Poster": "https://mx.web.img2.acsta.net/pictures/19/04/25/18/15/4715620.jpg",
+        "Partes": 1
+      }
+    ]
+  }
