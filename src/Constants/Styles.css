@@ -51,4 +51,17 @@
         width: 17%;
         text-align: center;
     }
+    .Quess {
+        position: absolute;
+        bottom: 0%;
+        display: flex;
+        margin: 0, auto;
+    }
+    .button {
+        margin: -10%;
+        height: 10px;
+        width: 5px;
+        font-size: 6px;
+        margin-left: 1px;
+    }
 }
