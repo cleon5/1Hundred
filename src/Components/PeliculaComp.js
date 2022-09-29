@@ -4,13 +4,17 @@ import ModalQuess from "../Components/ModalQuess";
 
 const PeliculaComp = ({ Pelicula = [] }) => {
   const rep = () => {
+    //console.log(Pelicula.Preguntas)
     if(Pelicula.Partes > 1 ){
-      
       return Pelicula.Preguntas.map((x, key) => (
         <ModalQuess Preguntas={x} key={key.id} />
       ))
-      
     }  
+    else if(Pelicula.Partes === 1 && Pelicula.Preguntas != undefined){
+      console.log("Pelicula")
+      console.log(Pelicula.Preguntas)
+      return <ModalQuess Preguntas={Pelicula.Preguntas}   />
+    }
   }
 
   return (

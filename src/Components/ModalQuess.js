@@ -4,11 +4,12 @@ import "../Constants/Styles.css";
 const ModalQuess = ({Preguntas=[]}) => {
     const [Titulo, setTitulo] = useState("")
     const [Text, setText] = useState("")
-
+    console.log(Preguntas)
+    
     const Correcta = Preguntas.Correcta;
     let Modal = "modal"+Preguntas.id
     const Verificar = (Res) => {
-        if(Res == Correcta){
+        if(Res === Correcta){
             console.log("bien")
             setTitulo("Correcto")
             setText("Respuesta correcta")
