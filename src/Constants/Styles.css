@@ -1,92 +1,112 @@
 :root {
-    --height: 180px;
-    --imgHeight: 180px;
-  }
+
+}
+.linea {
+  width: 60%;
+  height: 5px;
+  background-color: rgb(105, 54, 5);
+  margin-bottom: 10px;
+}
+.Titulo {
+  font: oblique bold 320% cursive;
+}
 .Padin {
-    margin: 3px;
-    width: 9.3%;
-    text-align: center;
-    overflow:hidden;
+  margin: 1px;
+  width: 9.4%;
+  text-align: center;
+  overflow: hidden;
 }
-.Padin h5 {
-    font-size:1vw;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: pre;
-    padding-inline: 3px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+.Padin:hover .card-title {
+    color: rgb(255, 255, 255);
+} 
+.Padin:hover .card-subtitle {
+    color: rgb(143, 143, 143);
 }
-.Padin h6 {
-    font-size:1vw;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: pre;
-    padding: 0, 5px;
-    padding-bottom: 5px;
+/*.Padin .card-title, .Padin .card-subtitle:hover {
+  color: rgb(255, 255, 255);
 }
-.Poster{
+
+.Padin .card-subtitle:hover {
+    color: rgb(158, 158, 158);
+}*/
+.card-title {
+  font-size: 0.8vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  color: rgba(168, 168, 168, 0);
+}
+.card-subtitle {
+  font-size: 0.7vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  color: rgba(168, 168, 168, 0);
+}
+.TituloCard {
+  position: absolute;
+  top: 2%;
+  align-self: center;
+}
+.Poster {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  position: relative;
+  filter: brightness(50%);
+}
+.Poster:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.imagen {
+}
+.Quess {
+  position: absolute;
+  bottom: 2%;
+  align-self: center;
+}
+.button {
+  margin: -10%;
+  height: 2.3em;
+  width: 2.5em;
+  font-size: 10px;
+  margin: 1px, auto;
+  padding-inline: 5px;
+  border-color: transparent;
+  background-color: rgba(240, 248, 255, 0);
+}
+.button:hover {
+  /*Backgrouncolor agregar uno que convine */
+}
+@media screen and (max-width: 880px) {
+  .Padin h5 {
+    margin: 0px;
+    font-size: 2vw;
+  }
+  .Padin h6 {
+    font-size: 2vw;
+  }
+  .Poster {
     height: 100%;
-    width: 100%;
     object-fit: cover;
     object-position: center top;
     position: relative;
-    filter: brightness(50%);
-    
-}
-.Poster:hover{
-    -webkit-transform:scale(1.3);transform:scale(1.3);
-}
-.Quess {
+  }
+  .Padin {
+    margin: 3px;
+    width: 18%;
+    text-align: center;
+  }
+  .Quess {
     position: absolute;
-    bottom: 2%;
-    align-self: center;
-
-}
-.button {
-    margin: -10%;
-    height: 2.3em;
-    width: 2.5em;
-    font-size: 10px;
-    margin: 1px, auto;
-    padding-inline: 5px;
-    border-color: transparent;
-    background-color: rgba(240, 248, 255, 0);
-    
-}
-.button:hover {
-    /*Backgrouncolor agregar uno que convine */ 
-}
-@media screen and (max-width: 880px) {
-    .Padin h5 {
-        margin: 0px;
-        font-size:2vw;
-    }
-    .Padin h6 {
-        font-size:2vw;
-
-    }
-    .Poster{
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        position: relative;
-    }
-    .Padin {
-        margin: 3px;
-        width: 18%;
-        text-align: center;
-    }
-    .Quess {
-        position: absolute;
-        bottom: 0%;
-        max-width: 17%;
-    }
-    .button {
-        
-        height: 2em;
-        width: 1.5em;
-        font-size: 16px;
-    }
-    
+    bottom: 0%;
+    max-width: 17%;
+  }
+  .button {
+    height: 2em;
+    width: 1.5em;
+    font-size: 16px;
+  }
 }

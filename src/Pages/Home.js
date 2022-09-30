@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../Components/Navbar";
 import PeliculaComp from "../Components/PeliculaComp";
 import Peliculas from "../Constants/Peliculas.json";
+import Titulo from "../Components/Titulo";
 import "../Constants/Styles.css";
 
 export default class Home extends Component {
@@ -26,7 +27,7 @@ export default class Home extends Component {
     return (
       <div>
         <Navbar brand="1-Hundred Peliculas" />
-
+        <Titulo></Titulo>
         <div className="d-flex flex-wrap justify-content-center">
           {this.renderList()}
         </div>
