@@ -28,8 +28,8 @@ const navbar = ({ brand }) => {
             <NavLink to="/Location" className="nav-link active">
               location
             </NavLink>
-            <NavLink to="/Episodes" className="nav-link active">
-              Episodes
+            <NavLink to="/login" className="nav-link active">
+              login
             </NavLink>
           </div>
         </div>

@@ -1,6 +1,10 @@
 :root {
 
 }
+body {
+  background-color: white;
+  background-size: cover;
+}
 .linea {
   width: 60%;
   height: 5px;
@@ -83,10 +87,10 @@
 @media screen and (max-width: 880px) {
   .Padin h5 {
     margin: 0px;
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
   .Padin h6 {
-    font-size: 2vw;
+    font-size: 1.4  vw;
   }
   .Poster {
     height: 100%;

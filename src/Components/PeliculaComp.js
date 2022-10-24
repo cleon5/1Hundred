@@ -5,12 +5,12 @@ import { Link, NavLink } from "react-router-dom";
 
 const PeliculaComp = ({ Pelicula = [] }) => {
   const rep = () => {
-    if(Pelicula.Partes > 1 ){
+    if(Pelicula.Secuelas > 1 ){
       return Pelicula.Preguntas.map((x, key) => (
         <ModalQuess Preguntas={x} key={key.id} />
       ))
     }  
-    else if(Pelicula.Partes === 1 && Pelicula.Preguntas != undefined){
+    else if(Pelicula.Secuelas === 1 && Pelicula.Preguntas != undefined){
 
       return <ModalQuess Preguntas={Pelicula.Preguntas}  key={Pelicula.Preguntas.id}  />
     }
@@ -18,8 +18,6 @@ const PeliculaComp = ({ Pelicula = [] }) => {
 
   return (
     <div key={Pelicula.id} className="card Padin">
-     
-
       <Link className=" Poster "  to={`/Pelicula/${Pelicula.id}`} >
         <img src={Pelicula.Poster} className=" Poster " alt="..." />
       </Link>

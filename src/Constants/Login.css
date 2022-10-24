@@ -1,0 +1,64 @@
+.bodyLogin{
+    background-image: url(../Images/Fondo.jpg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
+.loginCard {
+    width: 780px;
+    display: flex;
+    align-items:stretch;
+    margin: 150px auto;
+    background-color: blueviolet;
+    border-radius: 15px;
+}
+.rightCard{
+    background-color: aqua;
+    width: 59%;
+    height: 300px;
+    margin: 5px;
+    text-align: end;
+}
+.leftCard{
+    background-color: salmon;
+    width: 40%;
+    height: 300px;
+    margin: 5px;
+}
+.line{
+    width: 5px;
+    height: 310px;
+    background-color: black;
+}
+
+@media screen and (max-width: 800px) {
+    .loginCard {
+        width: 70%;
+        flex: none;
+        flex-direction:column;
+        margin: 150px auto;
+        background-color: blueviolet;
+    }
+    .rightCard{
+        background-color: aqua;
+        width: auto;
+        height: 300px;
+        margin: 5px;
+    }
+    .leftCard{
+        background-color: salmon;
+        width: auto;
+        height: 300px;
+        margin: 5px;
+    }
+    .line{
+        
+        display: none ;
+        background-color: black;
+    }
+}
