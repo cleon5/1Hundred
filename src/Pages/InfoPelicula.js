@@ -3,6 +3,7 @@ import Peliculas from "../Constants/Peliculas.json";
 import { useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import "../Constants/InfoPeliculas.css";
+import DisponibleComp from "../Components/Info/DisponibleComp";
 
 const InfoPelicula = () => {
   let { id } = useParams();
@@ -44,34 +45,7 @@ const InfoPelicula = () => {
             {Peli.Descipcion}
           </p>
 
-          
-          <div className="Disponible">
-            {Peli.Disponible.Netflix != null ? (
-              <a href={Peli.Disponible.Netflix}>
-                <div className="DisponibleElement" >
-                  <img src={Peli.Imagen} className="imgElement" alt=""></img>
-                  <p>Ver en Netflix</p>
-                </div>
-              </a>
-            ) : null}
-            {Peli.Disponible.Amazon != null ? (
-              <a href={Peli.Disponible.Amazon}>
-                <div className="DisponibleElement">
-                  <img src={Peli.Imagen} className="imgElement" alt=""></img>
-                  <p>Ver en Amazon</p>
-                </div>
-              </a>
-            ) : null}
-            {Peli.Disponible.Trailer != null ? (
-              <a href={Peli.Disponible.Trailer}>
-                <div className="DisponibleElement">
-                  <img src={Peli.Imagen} className="imgElement" alt=""></img>
-                  <p>Ver Trailer</p>
-                </div>
-              </a>
-            ) : null}
-          </div>
-
+          <DisponibleComp Disponible={Peli.Disponible}/>
 
         </div>
       </div>
