@@ -7,15 +7,20 @@ hr {
     margin-left: 2%;
 }
 .imagen{
-    width: 450px; 
+    padding-top: 30px;
+    width: 35%; 
+    
+    height: fit-content;
 }
 .titulo{
     text-align: center;
+    font-size: 3.5vw;
 }
 .informacion{
-
+    padding-top: 30px;
 }
 .Disponible{
+    padding-inline: 10%;
     width: 100%;
     display:flex;
     justify-content: space-evenly;
@@ -25,20 +30,14 @@ hr {
     
     
 }
-.DisponibleElement p{
-    text-align: center;
-    
-    
-}
 .imgElement{
-    width: 100px;
+    width: 60px;
     height: 50px;
-    margin: 0 auto;
-
+    border-radius: 50%;
 }
 .textoPelicula{
     padding-inline: 30px;
-    font-size: 20px;
+    font-size: 2vw;
 }
 @media screen and (max-width: 880px) {
     

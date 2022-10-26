@@ -7,8 +7,7 @@ import DisponibleComp from "../Components/Info/DisponibleComp";
 
 const InfoPelicula = () => {
   let { id } = useParams();
-  //console.log(Pelicula.Peliculas[id]);
-  const [Peli, setPeli] = useState(Peliculas.Peliculas[id]);
+  const [Peli, setPeli] = useState(Peliculas.Peliculas[id-1]);
   /*
   const GetLista = async () => {
     try {
@@ -45,8 +44,18 @@ const InfoPelicula = () => {
             {Peli.Descipcion}
           </p>
 
-          <DisponibleComp Disponible={Peli.Disponible}/>
+          
+            <div>
+              <p>Calificacion {Peli.Calificacion}</p>
+              <p>Genero {Peli.Genero.map(item => <p>{item}</p>
+                )}</p>
+              <p>Fecha de estreno {Peli.Estreno}</p>
+              <p>Director {Peli.Director}</p>
+              <p>Secuelas {Peli.Secuelas}</p>
 
+            </div>
+            <hr></hr>
+            <DisponibleComp Disponible={Peli.Disponible}/>
         </div>
       </div>
     </div>
