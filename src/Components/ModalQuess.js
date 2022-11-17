@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
 import "../Constants/Styles.css";
 
-const ModalQuess = ({Preguntas=[]}) => {
+const ModalQuess = ({Preguntas=[]}, {key}) => {
     const [Titulo, setTitulo] = useState("")
     const [Text, setText] = useState("")
-    
+    console.log(key)
     const Correcta = Preguntas.Correcta;
     let Modal = "modal"+Preguntas.id
     const Verificar = (Res) => {
@@ -20,7 +20,7 @@ const ModalQuess = ({Preguntas=[]}) => {
     }
 
   return (
-    <div>
+    <div key={Preguntas.id}>
         <button type="button" className="btn btn-primary button" data-bs-toggle="modal" data-bs-target={"#"+Modal}>
             {Preguntas.id}
         </button>

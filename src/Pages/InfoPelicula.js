@@ -7,7 +7,7 @@ import DisponibleComp from "../Components/Info/DisponibleComp";
 
 const InfoPelicula = () => {
   let { id } = useParams();
-  const [Peli, setPeli] = useState(Peliculas.Peliculas[id-1]);
+  const [Peli, setPeli] = useState(Peliculas.Peliculas[id - 1]);
   /*
   const GetLista = async () => {
     try {
@@ -34,28 +34,40 @@ const InfoPelicula = () => {
     <div>
       <Navbar brand="1-Hundred Peliculas" />
       <div className="peliculaData">
-        <img className="imagen" src={Peli.Imagen} alt=""></img>
+        <div className="DivImg">
+          <img className="imagen" src={Peli.Imagen} alt=""></img>
+          <DisponibleComp Disponible={Peli.Disponible} />
+        </div>
+
         <div className="informacion">
           <h1 className="titulo">{Peli.Nombre}</h1>
           <hr></hr>
           <p className="textoPelicula">
-            {Peli.Descipcion}
-            {Peli.Descipcion}
-            {Peli.Descipcion}
+            {Peli.Descipcion + " "}
+            {Peli.Descipcion + " "}
+            {Peli.Descipcion + " "}
           </p>
 
-          
-            <div>
-              <p>Calificacion {Peli.Calificacion}</p>
-              <p>Genero {Peli.Genero.map(item => <p>{item}</p>
-                )}</p>
-              <p>Fecha de estreno {Peli.Estreno}</p>
-              <p>Director {Peli.Director}</p>
-              <p>Secuelas {Peli.Secuelas}</p>
-
-            </div>
-            <hr></hr>
-            <DisponibleComp Disponible={Peli.Disponible}/>
+          <hr></hr>
+          <div className="Info">
+            <p>
+              Secuelas: {Peli.Secuelas}
+              <br></br>
+              Director: {Peli.Director}
+              <br></br>
+              Genero:
+              <div className="Info">
+                {Peli.Genero.map((item) => (
+                  <li>{item}</li>
+                ))}
+                <br></br>
+              </div>
+              Fecha de estreno: {Peli.Estreno}
+              <br></br>
+              Calificacion: {Peli.Calificacion} <br></br>
+            </p>
+          </div>
+          <hr></hr>
         </div>
       </div>
     </div>

@@ -19,11 +19,14 @@ body {
   width: 9.4%;
   text-align: center;
   overflow: hidden;
+  transition: all .7s;
 }
 .Padin:hover .card-title {
     color: rgb(255, 255, 255);
+    transition: all 1s;
 } 
 .Padin:hover .card-subtitle {
+  transition: all 1s;
     color: rgb(143, 143, 143);
 }
 /*.Padin .card-title, .Padin .card-subtitle:hover {
@@ -59,8 +62,10 @@ body {
   object-position: center top;
   position: relative;
   filter: brightness(50%);
+  transition: all .5s;
 }
 .Poster:hover {
+  transition: all .5s;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

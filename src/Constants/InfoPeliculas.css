@@ -1,44 +1,122 @@
-.peliculaData{
-    margin-inline: 30px;
-    margin-top: 10px;
-    display: flex;
+.peliculaData {
+  margin-inline: 3vw;
+  margin-top: 1vw;
+  display: flex;
 }
 hr {
+  margin-left: 2%;
+}
+.DivImg {
+  width: 35vw;
+  height: fit-content;
+}
+.imagen {
+  padding-top: 3vw;
+  width: 100%;
+  transition: all 0.5s;
+}
+.imagen:hover {
+  transition: all 0.5s;
+  scale: 1.1;
+}
+.titulo {
+  text-align: center;
+  font-size: 3.5vw;
+}
+.informacion {
+  width: 65vw;
+  height: fit-content;
+  padding-top: 3vw;
+}
+.Disponible {
+  padding-inline: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.DisponibleElement {
+  padding: 10px;
+}
+.imgElement {
+  width: 55px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+.imgElement:hover {
+  transition: all 0.5s;
+  scale: 1.2;
+}
+.textoPelicula {
+  padding-inline: 3vw;
+  font-size: 1.7vw;
+  text-indent: 2vw;
+  text-align: justify;
+}
+.Info {
+  padding-inline: 2vw;
+  font-size: 1.6vw;
+}
+
+@media screen and (max-width: 880px) {
+  .peliculaData {
+    margin-inline: 3vw;
+    margin-top: 1vw;
+    display: block;
+  }
+  hr {
     margin-left: 2%;
-}
-.imagen{
-    padding-top: 30px;
-    width: 35%; 
-    
+  }
+  .DivImg {
+    width: 80%;
     height: fit-content;
-}
-.titulo{
+    margin: 0 auto;
+  }
+  .imagen {
+    padding-top: 3vw;
+    width: 100%;
+    transition: all 0.5s;
+  }
+  .imagen:hover {
+    transition: all 0.5s;
+    scale: 1.1;
+  }
+  .titulo {
     text-align: center;
-    font-size: 3.5vw;
-}
-.informacion{
-    padding-top: 30px;
-}
-.Disponible{
+    font-size: 5vh;
+  }
+  .informacion {
+    width: 100%;
+    height: fit-content;
+    padding-top: 3vw;
+  }
+  .Disponible {
     padding-inline: 10%;
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: space-evenly;
-}
-.DisponibleElement{
+  }
+  .DisponibleElement {
     padding: 10px;
-    
-    
-}
-.imgElement{
-    width: 60px;
+  }
+  .imgElement {
+    width: 55px;
     height: 50px;
     border-radius: 50%;
-}
-.textoPelicula{
-    padding-inline: 30px;
-    font-size: 2vw;
-}
-@media screen and (max-width: 880px) {
-    
+    transition: all 0.5s;
+  }
+  .imgElement:hover {
+    transition: all 0.5s;
+    scale: 1.2;
+  }
+  .textoPelicula {
+    padding-inline: 3vw;
+    font-size: 2.4vh;
+    text-indent: 2vw;
+    text-align: justify;
+  }
+  .Info {
+    padding-inline: 2vw;
+    font-size: 2.4vh;
+  }
 }

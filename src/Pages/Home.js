@@ -35,9 +35,9 @@ export default class Home extends Component {
   }
   renderList() {
     return this.state.Pelicula.map((item2) =>
-      this.state.Pelicula.map((item) => (
-        <PeliculaComp key={item.id} Pelicula={item} />
-      ))
+      //this.state.Pelicula.map((item) => (
+        <PeliculaComp key={item2.id} Pelicula={item2} />
+      //))
     );
   };
 
