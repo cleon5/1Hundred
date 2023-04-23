@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Pages/Home';
+import Home2 from './Pages/Home2';
 import InfoPelicula from './Pages/InfoPelicula';
 import Login from './Pages/Login';
 
@@ -9,6 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} exact></Route>
+        <Route path="/h" element={<Home2 />} exact></Route>
         <Route path="/Pelicula/:id" element={<InfoPelicula/>}></Route>
         <Route path="/login/" element={<Login/>}></Route>
       </Routes>

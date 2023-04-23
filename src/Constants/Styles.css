@@ -61,7 +61,7 @@ body {
   object-fit: cover;
   object-position: center top;
   position: relative;
-  filter: brightness(50%);
+  /*filter: brightness(50%);*/
   transition: all .5s;
 }
 .Poster:hover {

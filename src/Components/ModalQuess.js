@@ -4,7 +4,7 @@ import "../Constants/Styles.css";
 const ModalQuess = ({Preguntas=[]}, {key}) => {
     const [Titulo, setTitulo] = useState("")
     const [Text, setText] = useState("")
-    console.log(key)
+   // console.log(key)
     const Correcta = Preguntas.Correcta;
     let Modal = "modal"+Preguntas.id
     const Verificar = (Res) => {

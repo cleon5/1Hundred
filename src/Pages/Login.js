@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import "../Constants/Login.css";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
+import { LoginGoogle } from "../Services/FirebaseAuth";
+import { getDocument } from "../Services/FirebaseGettters";
 
 export class Login extends Component {
+  GoogleLogin(){
+    LoginGoogle()
+    getDocument("Listas", "listaPeli")
+  }
   render() {
     return (
       <div className="bodyLogin">
@@ -21,6 +27,7 @@ export class Login extends Component {
             <input type="text" placeholder="Usuario"></input>
             <input type="text" placeholder="Password"></input>
             <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary" onClick={()=> this.GoogleLogin()}>google</button>
           </div>
         </div>
       </div>

@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+import { auth } from "../Services/FirebaseAuth";
 
 const navbar = ({ brand }) => {
+  
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container">
