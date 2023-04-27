@@ -4,30 +4,46 @@ import { useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import "../Constants/InfoPeliculas.css";
 import DisponibleComp from "../Components/Info/DisponibleComp";
+import { getDocument, getMovie } from "../Services/FirebaseGettters";
 
 const InfoPelicula = () => {
   let { id } = useParams();
-  const [Peli, setPeli] = useState(Peliculas.Peliculas[id - 1]);
-  /*
-  const GetLista = async () => {
-    try {
-      await axios.get("http://localhost:4000/Movie/" + id).then((data) => {
-        setPelicula(data.data);
-        setDisponible(data.data.Disponible)
-      });
-    } catch (error) {
-      console.log(error);
+  const [Pelicula, setPelicula] = useState([]);
+  const [Creditos, setCreditos] = useState([]);
+  const [Providers, setProviders] = useState([]);
+  const [Videos, setVideos] = useState([]);
+  const [Director, setDirector] = useState([]);
+  const [Cast, setCast] = useState([]);
+
+  const GetMovie = async () => {
+    let pelicula = await getDocument("Peliculas", id);
+    setPelicula(pelicula);
+    console.log(Pelicula);
+
+    let creditos = await getDocument("Creditos", id);
+
+    console.log(Creditos);
+    for (let i in creditos.crew) {
+      creditos.crew[i].job == "Director" && setDirector(creditos.crew[i]);
     }
+    let arrCast = [];
+    for (let i = 0; i < 10; i++) {
+      arrCast.push(creditos.cast[i]);
+    }
+    setCast(arrCast);
+    console.log(Cast);
+
+    let providers = await getDocument("Providers", id);
+    setProviders(providers);
+    console.log(Providers);
+
+    let videos = await getDocument("Videos", id);
+    setVideos(videos);
+    console.log(Videos);
   };
 
- <a href={Element}>
-                <div className="DisponibleElement">
-                  <img src={Pelicula.Imagen} className="imgElement"></img>
-                  <p>{Object.keys(Element)}</p>
-                </div>
-              </a> */
   useEffect(() => {
-    //GetLista();
+    GetMovie();
   }, []);
 
   return (
@@ -35,36 +51,34 @@ const InfoPelicula = () => {
       <Navbar brand="1-Hundred Peliculas" />
       <div className="peliculaData">
         <div className="DivImg">
-          <img className="imagen" src={Peli.Imagen} alt=""></img>
-          <DisponibleComp Disponible={Peli.Disponible} />
+          <img
+            className="imagen"
+            src={"http://image.tmdb.org/t/p/w500" + Pelicula.poster_path}
+            alt=""
+          ></img>
+         
         </div>
 
         <div className="informacion">
-          <h1 className="titulo">{Peli.Nombre}</h1>
+          <h1 className="titulo">{Pelicula.title}</h1>
           <hr></hr>
-          <p className="textoPelicula">
-            {Peli.Descipcion + " "}
-            {Peli.Descipcion + " "}
-            {Peli.Descipcion + " "}
-          </p>
+          <p className="textoPelicula">{Pelicula.overview + " "}</p>
 
           <hr></hr>
           <div className="Info">
             <p>
-              Secuelas: {Peli.Secuelas}
-              <br></br>
-              Director: {Peli.Director}
-              <br></br>
+              <p>Director : {Director.name}</p>
               Genero:
               <div className="Info">
-                {Peli.Genero.map((item) => (
-                  <li>{item}</li>
-                ))}
+                {Pelicula.genres &&
+                  Pelicula.genres.map((item, index) => (
+                    <li key={index}>{item.name}</li>
+                  ))}
                 <br></br>
               </div>
-              Fecha de estreno: {Peli.Estreno}
+              Fecha de estreno: {Pelicula.release_date}
               <br></br>
-              Calificacion: {Peli.Calificacion} <br></br>
+              Calificacion: {Pelicula.vote_average} <br></br>
             </p>
           </div>
           <hr></hr>

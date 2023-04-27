@@ -2,11 +2,15 @@ import React from "react";
 import "../Constants/Styles.css";
 import ModalQuess from "../Components/ModalQuess";
 import { Link, NavLink } from "react-router-dom";
+import { getDocument } from "../Services/FirebaseGettters";
 
 
 const PeliculaComp2 = ({ Pelicula = [] }) => {
+  
   console.log(Pelicula)
-  const rep = () => {
+
+ 
+  /*const rep = () => {
     if(Pelicula.Secuelas > 1 ){
       return Pelicula.Preguntas.map((x, key) => (
         <ModalQuess Preguntas={x} key={key.id} />
@@ -17,7 +21,7 @@ const PeliculaComp2 = ({ Pelicula = [] }) => {
       return <ModalQuess Preguntas={Pelicula.Preguntas}  key={Pelicula.Preguntas.id}  />
     }
   }
-
+*/
   return (
     <div className="card Padin">
       <Link className=" Poster "  to={`/Pelicula/${Pelicula.id}`} >

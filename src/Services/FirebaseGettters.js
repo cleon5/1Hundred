@@ -7,3 +7,16 @@ export const getDocument = async (Collection, document) => {
     
     return docSnap.data();
 }
+
+export const getMovie = async (idPelicula) => {
+    const docRef = doc(db, "Peliculas",idPelicula);
+    const docSnap = await getDoc(docRef);
+    
+    return docSnap.data();
+}
+export const getCreditos = async (idPelicula) => {
+    const docRef = doc(db, "Creditos",idPelicula);
+    const docSnap = await getDoc(docRef);
+    
+    return docSnap.data();
+}

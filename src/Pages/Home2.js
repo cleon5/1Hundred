@@ -9,9 +9,6 @@ import Peli from "../Constants/Peliculas.json";
 import { getDocument } from "../Services/FirebaseGettters";
 import PeliculaComp2 from "../Components/PeliculaComp2";
 
-import { doc, setDoc, collection, getDocs } from "firebase/firestore";
-import { db } from "../Services/Firebase";
-
 export default function Home2() {
   const [Peliculas, setPeliculas] = useState(Peli.Peliculas);
   const [Pel, setPel] = useState([]);

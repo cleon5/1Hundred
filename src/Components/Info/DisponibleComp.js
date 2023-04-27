@@ -3,11 +3,11 @@ import "../../Constants/InfoPeliculas.css";
 
 
 const DisponibleComp = ({Disponible=[]}) => {
-
+console.log(Disponible[0].rent)
   return (
     <div className="Disponible ">
     {Disponible.Netflix != null ? (
-      <a href={Disponible.Netflix}>
+      <a href={Disponible[0]}>
         <div className="DisponibleElement" >
           <img src="https://brandemia.org/sites/default/files/sites/default/files/icono_netflix_nuevo.jpg" className="imgElement" alt=""></img>
         </div>
