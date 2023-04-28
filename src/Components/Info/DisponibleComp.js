@@ -3,6 +3,7 @@ import "../../Constants/InfoPeliculas.css";
 
 
 const DisponibleComp = ({Disponible=[]}) => {
+  
 console.log(Disponible[0].rent)
   return (
     <div className="Disponible ">
