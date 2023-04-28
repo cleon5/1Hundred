@@ -25,8 +25,7 @@ export default class Home extends Component {
   async listar() {
     this.setState({ loading: true });
     const pelis = await getDocument("Listas", "listaPeli");
-    //this.setState({ FirePelis: [pelis] });
-    //console.log(this.state.FirePelis);
+
     this.setState({ loading: false });
     console.log(this.state.loading);
     
@@ -64,8 +63,6 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log("");
-    const { FirePelis } = this.state;
     return (
       <div>
         <Navbar brand="1-Hundred Peliculas" />
