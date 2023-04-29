@@ -6,6 +6,7 @@ import DisponibleComp from "../Components/Info/DisponibleComp";
 import { getDocument, getMovie } from "../Services/FirebaseGettters";
 import Actor from "../Components/Info/Actor";
 import YoutubeEmbed from "../Components/Info/YoutubeEmbed";
+import Footer from "../Components/Footer";
 
 export default function InfoMovie() {
   let { id } = useParams();
@@ -53,7 +54,7 @@ export default function InfoMovie() {
       <div className="peliData">
         <div className="Portada">
           <img
-            className="backgroundImg"
+            className="backgroundImg  "
             src={
               Pelicula.backdrop_path &&
               "http://image.tmdb.org/t/p/w1280" + Pelicula.backdrop_path
@@ -70,15 +71,19 @@ export default function InfoMovie() {
           </div>
           <div className="PortadaInfo">
             <div className="PortadaTitle">
-              <h1 className="titulo">{Pelicula.title}</h1>
+              <h1 className="titleMovie">{Pelicula.title}</h1>
             </div>
             <div className="PortadaDatos"></div>
 
             <div className="informacionPortada">
               <p className="txtPelicula">{Pelicula.overview}</p>
-              <p>Director: {Director.name}
-              Director: 
-             Director: 
+              <p>Director: {Director.name} <br/>
+              Fecha de estreno: {Pelicula.release_date}<br/>
+              Generos:
+                {Pelicula.genres &&
+                  Pelicula.genres.map((item) => ( 
+                    " - "+item.name
+                  ))}
 
               </p>
             </div>
@@ -88,13 +93,15 @@ export default function InfoMovie() {
       <div className="infoPelicula">
         <div className="informacion">
           <div className="Cast">
-            <h3>Cast</h3>
+            <h3>Cast</h3>            
+            <hr/>
             <div className="CastSlider d-flex flex-wrap justify-content-center">
               {Cast && Cast.map((cast) => <Actor key={cast.id} Cast={cast} />)}
             </div>
           </div>
           <div className="Media">
-            <h3>Media</h3>
+            <h3>Media</h3> 
+             <hr/>
             <div class="Slider d-flex flex-wrap justify-content-center">
               <div class="scrollmenu">
                 <div>
@@ -107,7 +114,13 @@ export default function InfoMovie() {
             </div>
           </div>
         </div>
+        <div className="Media">
+            <h3>Recomendaciones</h3>
+            <hr/>
+          
+          </div>
         <div className="PelisSimilares"></div>
+        <Footer/>
       </div>
     </div>
   );

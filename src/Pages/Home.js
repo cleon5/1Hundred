@@ -8,6 +8,7 @@ import Modal from "../Components/Modal";
 import Peli from "../Constants/Peliculas.json";
 import { getDocument } from "../Services/FirebaseGettters";
 import PeliculaComp2 from "../Components/PeliculaComp2";
+import Footer from "../Components/Footer";
 
 export default class Home extends Component {
   constructor(props) {
@@ -78,18 +79,9 @@ export default class Home extends Component {
             <div>a</div>;
           })}
         </div>
-        <ul>
-          {this.state.loading ? (
-            <div>loading</div>
-          ) : (
-            <div>
-              { Object.keys(this.state.FirePelis).forEach((e) => {
-                this.state.FirePelis[e] ? <li key={e.id}>a</li>:null;
-              })}
-            </div>
-          )}
-        </ul>
-        {this.state.FirePelis.length > 1 ? console.log("ma") : console.log(90)}
+        
+       <Footer/>
+
       </div>
     );
   }

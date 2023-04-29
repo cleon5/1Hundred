@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Actor({Cast=[]}) {
   return (
-    <div key={Cast.id}  className="card Padin">
+    <div key={Cast.id} className="card Padin">
       <a className=" Poster " href={`https://www.themoviedb.org/person/${Cast.id}`}>
         <img src={"http://image.tmdb.org/t/p/w500" +Cast.profile_path} className=" Poster " alt="..." />
       </a>

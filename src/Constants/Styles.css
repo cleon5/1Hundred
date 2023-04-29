@@ -24,8 +24,11 @@ body {
 .Padin:hover .card-title {
     color: rgb(255, 255, 255);
     transition: all 1s;
+    text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.842);
+    
 } 
 .Padin:hover .card-subtitle {
+  text-shadow: 0px 0px 18px rgba(2, 1, 14, 0.733);
   transition: all 1s;
     color: rgb(143, 143, 143);
 }
@@ -66,9 +69,11 @@ body {
 }
 .Poster:hover {
   transition: all .5s;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.07);
+  transform: scale(1.07);
+  
 }
+
 .imagen {
 }
 .Quess {
@@ -118,4 +123,9 @@ body {
     width: 1.5em;
     font-size: 16px;
   }
+}
+
+.Footer{
+  width: 100%;
+
 }

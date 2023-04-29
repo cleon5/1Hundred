@@ -28,9 +28,6 @@ const navbar = ({ brand }) => {
             <NavLink to="/" className="nav-link active" >
               Home
             </NavLink>
-            <NavLink to="/Location" className="nav-link active">
-              location
-            </NavLink>
             <NavLink to="/login" className="nav-link active">
               login
             </NavLink>

@@ -1,6 +1,5 @@
 .peliData {
   width: 100%;
-  
 }
 
 .Portada {
@@ -10,12 +9,16 @@
   background-size: cover;
   height: 40vw;
   justify-content: center;
+  text-shadow: 0px 0px 18px rgba(4, 1, 45, 0.66);
 }
 .PortadaImg {
-   width: 30%;
-    height: fit-content;
+  width: 30%;
+  height: fit-content;
+  border-radius: 22px;
+  align-items: center;
+  align-self: center;
 }
-.backgroundImg{
+.backgroundImg {
   position: absolute;
   z-index: -10;
   height: 40vw;
@@ -26,43 +29,61 @@
   background-size: cover;
   object-fit: cover;
 }
-.imgPoster{
-    padding: 3vw;
-    align-items: center;
-    align-self: center;
-    width: 100%;
-    height: auto;
-    opacity: 1;
+.imgPoster {
+  border-radius: 12px;
+  box-shadow: rgba(43, 43, 44, 0.445) 0px 7px 29px 0px;
+  align-items: center;
+  align-self: center;
+  width: 75%;
+  height: auto;
+  opacity: 1;
+  transition: all 0.5s;
 }
-
+.imgPoster:hover {
+  transition: all 0.5s;
+  scale: 1.05;
+}
 .PortadaInfo {
+  display: flex;
+  flex-direction: column;
   color: white;
   width: 60%;
-  height: 40vw;
-  padding-top: 20vw;
-  align-self:flex-end;
+  align-self: end;
+  align-items: flex-end;
   align-content: end;
-  align-items: end;
 }
 .PortadaTitle {
+}
+.Cast h3,
+.Media h3 {
+  font-size: 3vw;
+  margin: 20px;
+  text-align: center;
+}
+.titleMovie {
+  font-size: 3vw;
 }
 .PortadaDatos {
 }
 .informacionPortada {
-  align-self:flex-end;
+  font-size: 1.4vw;
+  align-items: center;
+  align-self: center;
+  align-self: flex-end;
   align-content: end;
   align-items: end;
 }
-.txtPelicula{
-
+.txtPelicula {
 }
 .infoPelicula {
   width: 100%;
 }
 .informacion {
   width: 100%;
+  margin-top: 0;
+  padding-top: 0;
 }
-.CastSlider{
+.CastSlider {
   display: flex;
   width: 100%;
 }
@@ -72,38 +93,89 @@
   overflow: auto;
   white-space: nowrap;
   margin: 15px 20px;
-  box-shadow: 10px 10px 56px 0px rgba(0,0,0,0.75);
+  box-shadow: 7px 7px 36px 0px rgba(0, 0, 0, 0.75);
 }
-.gameImg{
+.gameImg {
   border-radius: 10px;
   width: 98%;
-  box-shadow: 10px 10px 56px 0px rgba(0,0,0,0.75);
-  
+  box-shadow: 10px 10px 56px 0px rgba(0, 0, 0, 0.75);
 }
 .scrollmenu div {
+  width: 100%;
   display: inline-block;
   color: white;
   text-align: center;
   padding: 1px;
   text-decoration: none;
-  
 }
 
-  * {
-    scrollbar-width:thin;
-    scrollbar-color: #2b2d53 #374649;
+@media screen and (max-width: 480px) {
+  .Portada {
+    flex-direction: column;
+    height: 110vw;
   }
+  .PortadaImg {
+    width: 35%;
+    height: fit-content;
+    border-radius: 22px;
+    align-items: center;
+    align-self: center;
+  }
+  .backgroundImg {
+    position: absolute;
+    z-index: -10;
+    height: 110vw;
+    max-height: 80%;
+    width: 100%;
+    filter: brightness(30%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+  }
+  .imgPoster {
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+  .titleMovie {
+    text-align: center;
+    font-size: 5vw;
+  }
+  .PortadaInfo {
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    padding: 4vw;
+  }
+  .informacionPortada {
+    font-size: 2.4vw;
+  }
+  .Cast h3,
+  .Media h3 {
+    font-size: 6vw;
+    margin: 20px;
+    text-align: center;
+  }
+}
 
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2b2d53 #374649;
+}
 
-  *::-webkit-scrollbar-track {
-    background: rgb(32, 32, 32);;
-  }
+*::-webkit-scrollbar {
+  width: 10px;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #14152b;
-    border-radius: 10px;
-    border: 2px outset #353131;
-  }
+*::-webkit-scrollbar-track {
+  background: rgb(32, 32, 32);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #14152b;
+  border-radius: 10px;
+  border: 2px outset #353131;
+}
