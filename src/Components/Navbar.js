@@ -1,10 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {  createUserWithEmailAndPassword  } from 'firebase/auth';
-import { auth } from "../Services/FirebaseAuth";
+import { useEffect, useState } from "react";
+import {LogOut} from "../Services/FirebaseAuth"
 
 const navbar = ({ brand }) => {
-  
+  const [loged, setloged] = useState(true);
+  const singOut = () =>{
+    LogOut();
+   // setloged(!loged)
+  }
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container">
@@ -23,14 +27,20 @@ const navbar = ({ brand }) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          
           <div className="navbar-nav">
-            <NavLink to="/" className="nav-link active" >
+            <NavLink to="/" className="nav-link active">
               Home
             </NavLink>
-            <NavLink to="/login" className="nav-link active">
-              login
-            </NavLink>
+
+            {loged ? (
+              <NavLink to="/login" className="nav-link active">
+                login
+              </NavLink>
+            ) : (
+              <NavLink to="/login" onClick={()=>singOut()} className="nav-link active">
+                SingOut
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

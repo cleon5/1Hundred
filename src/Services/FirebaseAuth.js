@@ -1,4 +1,6 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider,signInWithPopup  } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+  GoogleAuthProvider,signInWithPopup, signOut ,
+} from "firebase/auth";
 import { auth } from "../Services/Firebase";
 import { saveUser } from "./UsersFirebase";
 
@@ -47,4 +49,10 @@ export const LoginGoogle = () => {
     const credential = GoogleAuthProvider.credentialFromError(error);
   });
 };
-export const LogOut = () => {};
+export const LogOut = () => {
+  signOut(auth).then(() => {
+    console.log("out")
+  }).catch((error) => {
+    console.log(error)
+  });
+};
