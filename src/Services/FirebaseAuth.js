@@ -49,6 +49,7 @@ export const LoginGoogle = () => {
     const credential = GoogleAuthProvider.credentialFromError(error);
   });
 };
+
 export const LogOut = () => {
   signOut(auth).then(() => {
     console.log("out")

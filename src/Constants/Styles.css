@@ -43,7 +43,6 @@ body {
   font-size: 0.8vw;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: pre;
   color: rgba(168, 168, 168, 0);
 }
 .card-subtitle {
@@ -55,8 +54,11 @@ body {
 }
 .TituloCard {
   position: absolute;
-  top: 2%;
+  bottom: 2%;
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 .Poster {
   height: 100%;
@@ -78,8 +80,9 @@ body {
 }
 .Quess {
   position: absolute;
-  bottom: 2%;
-  align-self: center;
+  top: 0%;
+  align-self: flex-end;
+  padding: 3px;
 }
 .button {
   margin: -10%;
@@ -93,6 +96,9 @@ body {
 }
 .button:hover {
   /*Backgrouncolor agregar uno que convine */
+}
+.Quess i{
+
 }
 @media screen and (max-width: 880px) {
   .Padin h5 {

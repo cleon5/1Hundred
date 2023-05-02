@@ -7,6 +7,7 @@ import { getDocument, getMovie } from "../Services/FirebaseGettters";
 import Actor from "../Components/Info/Actor";
 import YoutubeEmbed from "../Components/Info/YoutubeEmbed";
 import Footer from "../Components/Footer";
+import Recomendaciones from "../Components/Info/Recomendaciones"
 
 export default function InfoMovie() {
   let { id } = useParams();
@@ -117,7 +118,7 @@ export default function InfoMovie() {
         <div className="Media">
             <h3>Recomendaciones</h3>
             <hr/>
-          
+           <Recomendaciones />
           </div>
         <div className="PelisSimilares"></div>
         <Footer/>

@@ -1,10 +1,8 @@
 import React, { Component, useState, useEffect } from "react";
 import "../Constants/Styles.css";
-import axios from "axios";
 import Navbar from "../Components/Navbar";
 import PeliculaComp from "../Components/PeliculaComp";
 import Titulo from "../Components/Titulo";
-import Modal from "../Components/Modal";
 import Peli from "../Constants/Peliculas.json";
 import { getDocument } from "../Services/FirebaseGettters";
 import PeliculaComp2 from "../Components/PeliculaComp2";
@@ -32,26 +30,12 @@ export default class Home extends Component {
     
     let Arrpelis = []
     for (var i in pelis) {
-      console.log(pelis[i]);
       Arrpelis.push(pelis[i]);
     }
     this.setState({FirePelis:Arrpelis});
     console.log(this.state.FirePelis);
   }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.FirePelis !== this.state.FirePelis) {
-      console.log("pokemons state has changed.");
-      console.log(this.state.FirePelis[105]);
-      Object.keys(this.state.FirePelis).forEach((e) => {
-        console.log(this.state.FirePelis[e]);
-      });
-      for (let x in this.state.FirePelis) {
-        console.log(x);
-        console.log(this.state.FirePelis[x]);
-      }
-      //this.state.FirePelis.forEach(p => console.log(p))
-    }
-  }
+
   renderList() {
     return this.state.Pelicula.map((item2) => (
       <PeliculaComp key={item2.id} Pelicula={item2} />
@@ -74,11 +58,6 @@ export default class Home extends Component {
           this.state.FirePelis.map((pel) => <PeliculaComp2 key={pel.id} Pelicula={pel} />):console.log(this.state.FirePelis)}
       </div>
 
-        <div className="d-flex flex-wrap justify-content-center">
-          {Object.keys(this.state.FirePelis).forEach((e) => {
-            <div>a</div>;
-          })}
-        </div>
         
        <Footer/>
 
