@@ -7,8 +7,9 @@ import {
   where,
   orderBy,
   limit,
-  collection, getDocs
+  collection, getDocs, updateDoc,
 } from "firebase/firestore";
+import { auth } from "../Services/Firebase";
 
 export const getDocument = async (Collection, document) => {
   const docRef = doc(db, Collection, document);
@@ -23,12 +24,7 @@ export const getMovie = async (idPelicula) => {
 
   return docSnap.data();
 };
- const getCreditos = async (idPelicula) => {
-  const docRef = doc(db, "Creditos", idPelicula);
-  const docSnap = await getDoc(docRef);
 
-  return docSnap.data();
-};
 export const getMovieWhere = async () => {
   const movieRef = collection(db, "Peliculas");
   const q = query(
@@ -46,8 +42,22 @@ export const getMovieWhere = async () => {
 
   return returnPelis;
 };
+export const getUser= async()=>{
+  const user = auth.currentUser;
+  console.log(user)
+    //let docSnap = await getDoc(doc(this.firestore, 'Users', this.userData.uid));
+    //this.setUserData(docSnap.data());
+    //return docSnap.data();
+  
+}
 
+export const PeliculasVistasUpdate= async(id)=>{
+  const washingtonRef = doc(db, "Users", );
 
-export const PeliculasVistasUpdate=()=>{
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(washingtonRef, {
+    capital: true
+  });
+
     let dataUser = getDocument("Users", "")
 }

@@ -3,19 +3,25 @@ import "../Constants/Login.css";
 import Navbar from "../Components/Navbar";
 import { LoginGoogle } from "../Services/FirebaseAuth";
 import { getDocument } from "../Services/FirebaseGettters";
+import { Navigate } from "react-router-dom";
+
 
 export class Login extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
       login: true,
     };
   }
+  
   changeStateLogin() {
     this.setState({ login: !this.state.login });
   }
-  GoogleLogin() {
-    LoginGoogle();
+ async GoogleLogin() {
+    await LoginGoogle();
+    
+   
   }
   render() {
     return (

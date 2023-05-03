@@ -2,12 +2,13 @@ import React from "react";
 import "../Constants/Styles.css";
 import ModalQuess from "../Components/ModalQuess";
 import { Link, NavLink } from "react-router-dom";
-import { getDocument } from "../Services/FirebaseGettters";
+import { getDocument, getUser } from "../Services/FirebaseGettters";
 
 const PeliculaComp2 = ({ Pelicula = [] }) => {
-  console.log(Pelicula);
+
   const clicHeard = (id) => {
     console.log(id);
+    getUser()
   };
 
   return (
@@ -24,7 +25,7 @@ const PeliculaComp2 = ({ Pelicula = [] }) => {
         <h6 className="card-subtitle mb-2 ">{Pelicula.vote_average}</h6>
       </div>
       <div className="d-flex justify-content-center Quess">
-        <i class="fa-solid fa-heart" onClick={() => clicHeard(Pelicula.id)}></i>
+        <i className="fa-solid fa-heart" onClick={() => clicHeard(Pelicula.id)}></i>
       </div>
     </div>
   );

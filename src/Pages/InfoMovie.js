@@ -103,8 +103,8 @@ export default function InfoMovie() {
           <div className="Media">
             <h3>Media</h3> 
              <hr/>
-            <div class="Slider d-flex flex-wrap justify-content-center">
-              <div class="scrollmenu">
+            <div className="Slider d-flex flex-wrap justify-content-center">
+              <div className="scrollmenu">
                 <div>
                   {Videos.results &&
                     Videos.results.map((video) => (

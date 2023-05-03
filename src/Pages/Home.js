@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component,  } from "react";
 import "../Constants/Styles.css";
 import Navbar from "../Components/Navbar";
 import PeliculaComp from "../Components/PeliculaComp";
@@ -7,8 +7,13 @@ import Peli from "../Constants/Peliculas.json";
 import { getDocument } from "../Services/FirebaseGettters";
 import PeliculaComp2 from "../Components/PeliculaComp2";
 import Footer from "../Components/Footer";
+import {ContexAuth, context} from "../Services/ContexAuth";
+
+
 
 export default class Home extends Component {
+  static contextType = context
+
   constructor(props) {
     super(props);
     this.state = {
@@ -18,8 +23,12 @@ export default class Home extends Component {
     };
   }
 
+  
   componentDidMount() {
     this.listar();
+    const x = this.context
+    console.log(x)
+    
   }
   async listar() {
     this.setState({ loading: true });
@@ -48,8 +57,12 @@ export default class Home extends Component {
   }
 
   render() {
+
+    let r = this.context
+    console.log(r)  
     return (
       <div>
+
         <Navbar brand="1-Hundred Peliculas" />
         <Titulo />
 

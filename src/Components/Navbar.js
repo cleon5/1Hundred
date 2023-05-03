@@ -1,14 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
-import {LogOut} from "../Services/FirebaseAuth"
+import { NavLink, Navigate } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { LogOut, getUsetAct } from "../Services/FirebaseAuth";
+import { context, useAuth } from "../Services/ContexAuth";
+import { useNavigate } from "react-router-dom";
 
 const navbar = ({ brand }) => {
-  const [loged, setloged] = useState(true);
-  const singOut = () =>{
+  const [loged, setloged] = useState();
+
+  const cont = useContext(context);
+  const atu = useAuth();
+  const navigate = useNavigate();
+  console.log(atu);
+
+  //console.log(cont)
+  const singOut = async () => {
+    console.log("logout");
     LogOut();
-   // setloged(!loged)
+    //setloged(false);
+  };
+  function init() {
+    console.log(atu.login);
+    setloged(atu.login);
+    console.log(loged);
   }
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container">
@@ -32,13 +51,17 @@ const navbar = ({ brand }) => {
               Home
             </NavLink>
 
-            {loged ? (
-              <NavLink to="/login" className="nav-link active">
-                login
+            {atu.login ? (
+              <NavLink
+                to="/login"
+                onClick={() => singOut()}
+                className="nav-link active"
+              >
+                SingOut
               </NavLink>
             ) : (
-              <NavLink to="/login" onClick={()=>singOut()} className="nav-link active">
-                SingOut
+              <NavLink to="/login" className="nav-link active">
+                login
               </NavLink>
             )}
           </div>
