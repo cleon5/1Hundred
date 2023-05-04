@@ -12,7 +12,6 @@ import Recomendaciones from "../Components/Info/Recomendaciones"
 export default function InfoMovie() {
   let { id } = useParams();
   const [Pelicula, setPelicula] = useState([]);
-  const [Creditos, setCreditos] = useState([]);
   const [Providers, setProviders] = useState([]);
   const [Videos, setVideos] = useState([]);
   const [Director, setDirector] = useState([]);
@@ -25,7 +24,6 @@ export default function InfoMovie() {
 
     let creditos = await getDocument("Creditos", id);
 
-    console.log(Creditos);
     for (let i in creditos.crew) {
       creditos.crew[i].job == "Director" && setDirector(creditos.crew[i]);
     }
