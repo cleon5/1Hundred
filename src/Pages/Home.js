@@ -57,9 +57,6 @@ export default class Home extends Component {
   }
 
   render() {
-
-    let r = this.context
-    console.log(r)  
     return (
       <div>
 

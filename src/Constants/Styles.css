@@ -21,13 +21,13 @@ body {
   overflow: hidden;
   transition: all .7s;
 }
-.Padin:hover .card-title {
+.Padin:hover .card-title, .PadinActor .card-title{
     color: rgb(255, 255, 255);
     transition: all 1s;
     text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.842);
     
 } 
-.Padin:hover .card-subtitle {
+.Padin:hover .card-subtitle,  .PadinActor .card-subtitle {
   text-shadow: 0px 0px 18px rgba(2, 1, 14, 0.733);
   transition: all 1s;
     color: rgb(143, 143, 143);
@@ -100,12 +100,29 @@ body {
 .Quess i{
 
 }
+.PadinActor{
+  width: 30%;
+  margin: 1px;
+  text-align: center;
+  overflow: hidden;
+  transition: all .7s;
+}
+
+
 @media screen and (max-width: 880px) {
-  .Padin h5 {
+  .PadinActor{
+    width: 18%;
+    margin: 1px;
+    text-align: center;
+    overflow: hidden;
+    transition: all .7s;
+  }
+  
+  .Padin h5, .PadinActor h5 {
     margin: 0px;
     font-size: 1.5vw;
   }
-  .Padin h6 {
+  .Padin h6, .PadinActor h6 {
     font-size: 1.4  vw;
   }
   .Poster {
