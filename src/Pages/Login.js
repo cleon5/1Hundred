@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "../Constants/Login.css";
 import Navbar from "../Components/Navbar";
 import { LoginGoogle } from "../Services/FirebaseAuth";
-import { getDocument } from "../Services/FirebaseGettters";
-import { Navigate } from "react-router-dom";
-
 
 export class Login extends Component {
   

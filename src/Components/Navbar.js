@@ -22,7 +22,6 @@ const navbar = ({ brand }) => {
   function init() {
     console.log(atu.login);
     setloged(atu.login);
-    console.log(loged);
   }
   useEffect(() => {
     init();
@@ -52,18 +51,29 @@ const navbar = ({ brand }) => {
             </NavLink>
 
             {atu.login ? (
-              <NavLink
-                to="/login"
-                onClick={() => singOut()}
-                className="nav-link active"
-              >
-                SingOut
-              </NavLink>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Perfil
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>{atu.User && atu.User.displayName}</li>
+                <li>
+                <NavLink
+              to="/login"
+              onClick={() => singOut()}
+              className="nav-link active"
+            >
+              SingOut
+            </NavLink>
+                </li>
+              </ul>
+           </li>
             ) : (
               <NavLink to="/login" className="nav-link active">
                 login
               </NavLink>
             )}
+             
           </div>
         </div>
       </div>

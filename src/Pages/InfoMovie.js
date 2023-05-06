@@ -54,7 +54,7 @@ export default function InfoMovie() {
    " document.write('<scr' + 'ipt type='text/javascript' src="+'http' + "(location.protocol === 'https:' ? 's' : '') "+ '://www.profitabledisplaynetwork.com/8f6286b85a45a7f0b714bbe826213e91/invoke.js'+"></scr' + 'ipt>');"+
 "</script>";
 
-console.log(x)
+  console.log(x)
   }
 
   useEffect(() => {
