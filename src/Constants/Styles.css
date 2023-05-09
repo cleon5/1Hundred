@@ -5,6 +5,9 @@ body {
   background-color: white;
   background-size: cover;
 }
+.opacity{
+  opacity: .5;
+}
 .linea {
   width: 60%;
   height: 5px;
@@ -31,6 +34,9 @@ body {
   text-shadow: 0px 0px 18px rgba(2, 1, 14, 0.733);
   transition: all 1s;
     color: rgb(143, 143, 143);
+}
+.fa-heart{
+  color: #ffdf0f;
 }
 /*.Padin .card-title, .Padin .card-subtitle:hover {
   color: rgb(255, 255, 255);

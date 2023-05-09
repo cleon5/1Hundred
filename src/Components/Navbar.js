@@ -51,11 +51,11 @@ const navbar = ({ brand }) => {
             </NavLink>
 
             {atu.login ? (
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Perfil
               </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
+              <ul className="dropdown-menu dropdown-menu-dark">
                 <li>{atu.User && atu.User.displayName}</li>
                 <li>
                 <NavLink

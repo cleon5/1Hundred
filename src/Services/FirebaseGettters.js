@@ -11,6 +11,8 @@ import {
 } from "firebase/firestore";
 import { auth } from "../Services/Firebase";
 
+
+let userLocal;
 export const getDocument = async (Collection, document) => {
   const docRef = doc(db, Collection, document);
   const docSnap = await getDoc(docRef);
@@ -42,22 +44,37 @@ export const getMovieWhere = async () => {
 
   return returnPelis;
 };
+export const getUserId = async(id) =>{
+  let docSnap = await getDoc(doc(db, 'Users',id));
+  return docSnap.data()
+}
 export const getUser= async()=>{
-  const user = auth.currentUser;
+  const user = await auth.currentUser;
   console.log(user)
-    //let docSnap = await getDoc(doc(this.firestore, 'Users', this.userData.uid));
-    //this.setUserData(docSnap.data());
-    //return docSnap.data();
+  let docSnap = await getDoc(doc(db, 'Users', user.uid));
+  return docSnap.data()
   
 }
-
-export const PeliculasVistasUpdate= async(id)=>{
-  const washingtonRef = doc(db, "Users", );
-
-  // Set the "capital" field of the city 'DC'
-  await updateDoc(washingtonRef, {
-    capital: true
+const AgregarPeliculaVistaUser = (Peliculas, userid) => {
+  console.log(Peliculas, userid);
+  updateDoc(doc(db, 'Users', userid), {
+    PeliculasVistas: Peliculas,
   });
+}
+export const PeliculasVistasUpdate= async(id)=>{
+    let user = await getUser();
+    let PeliculasVistas = user.PeliculasVistas;
+    console.log(PeliculasVistas)
+    if (PeliculasVistas == undefined) {
+      PeliculasVistas = [id];
+    } else if(!PeliculasVistas.includes(id)) {
+      PeliculasVistas.push(id);
+    }
+    else{
+      PeliculasVistas.splice(PeliculasVistas.indexOf(id), 1)
+    }
 
-    let dataUser = getDocument("Users", "")
+    console.log(PeliculasVistas);
+    AgregarPeliculaVistaUser(PeliculasVistas, user.user.uid);
+    getUser()
 }
