@@ -9,14 +9,15 @@ export const useAuth = ()=>{
   const authContext = useContext(context)
   return authContext
 }
+
 export function ContexAuth({children}) {
   const [User, setUser] = useState(auth.currentUser)
   const [login, setlogin] = useState(false)
-  const [Movies, setMovies] = useState([])
+  const [Movies, setMovies] = useState()
 
   const getMovies=async ()=>{
     let movies = await getUser()
-    setMovies(Object.values(movies.PeliculasVistas))
+    movies && setMovies(Object.values(movies.PeliculasVistas))
     console.log(Object.values(movies.PeliculasVistas))
   }
   const stateUser = () =>{
@@ -35,6 +36,7 @@ export function ContexAuth({children}) {
     useEffect(() => {
       stateUser()
       getMovies()
+      //component.forceUpdate(callback)
     }, [])
     
   return (

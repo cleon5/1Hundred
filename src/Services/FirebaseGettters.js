@@ -51,8 +51,8 @@ export const getUserId = async(id) =>{
 export const getUser= async()=>{
   const user = await auth.currentUser;
   console.log(user)
-  let docSnap = await getDoc(doc(db, 'Users', user.uid));
-  return docSnap.data()
+  let docSnap = user && await getDoc(doc(db, 'Users', user.uid));
+  return user && docSnap.data()
   
 }
 const AgregarPeliculaVistaUser = (Peliculas, userid) => {
@@ -76,5 +76,4 @@ export const PeliculasVistasUpdate= async(id)=>{
 
     console.log(PeliculasVistas);
     AgregarPeliculaVistaUser(PeliculasVistas, user.user.uid);
-    getUser()
 }

@@ -28,9 +28,16 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.listar();
-    this.listarVistas()
+    //this.listarVistas() 
     console.log(auth.currentUser)
    
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const contex = this.context;
+    if (contex.Movies !== this.state.Movies) {
+      console.log('pokemons state has changed.')
+      this.setState({ Movies: this.context.Movies });
+    }
   }
   async listar() {
     this.setState({ loading: true });
@@ -46,13 +53,14 @@ export default class Home extends Component {
     this.setState({ FirePelis: Arrpelis });
   }
 
+
   listarVistas = () =>{
     
     let tempPeliculas = [];
     const contex = this.context;
-   
-    this.setState({ Movies: this.context.Movies });
-    console.log(this.state.Movies)
+   console.log("xsad  ")
+    contex.Movies && this.setState({ Movies: this.context.Movies });
+    contex.Movies && console.log(this.state.Movies)
   }
  /* renderList() {
     return this.state.Pelicula.map((item2) => (
@@ -73,16 +81,16 @@ export default class Home extends Component {
 
         <div className="d-flex flex-wrap justify-content-center">
           {this.state.FirePelis.length > 0
-            ? this.state.FirePelis.map((pel) => (
+            && this.state.FirePelis.map((pel) => (
                 <PeliculaComp2
                   key={pel.id}
                   Pelicula={pel}
-                  include={
+                  inclu={
                     this.context.Movies &&  this.context.Movies.includes(pel.id)
                   }
                 />
               ))
-            : console.log(this.state.FirePelis)}
+           }
         </div>
 
         <Footer />

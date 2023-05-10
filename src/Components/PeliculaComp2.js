@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import "../Constants/Styles.css";
 import ModalQuess from "../Components/ModalQuess";
 import { Link, NavLink } from "react-router-dom";
 import { getDocument, getUser, PeliculasVistasUpdate } from "../Services/FirebaseGettters";
 
 
-const PeliculaComp2 = ({ Pelicula = [], include }) => {
+const PeliculaComp2 = ({ Pelicula = [], inclu }) => {
+  const [include, setinclude] = useState(inclu)
   const clicHeard = (id) => {
     console.log(id);
     PeliculasVistasUpdate(id)
+    setinclude(!include)
   };
 
   return (
