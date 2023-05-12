@@ -4,14 +4,13 @@ import Navbar from "../Components/Navbar";
 import PeliculaComp from "../Components/PeliculaComp";
 import Titulo from "../Components/Titulo";
 import Peli from "../Constants/Peliculas.json";
-import { getDocument, getUser } from "../Services/FirebaseGettters";
+import { getDocument, getUser, getPeliculasVistas } from "../Services/FirebaseGettters";
 import PeliculaComp2 from "../Components/PeliculaComp2";
 import Footer from "../Components/Footer";
 import { ContexAuth, context } from "../Services/ContexAuth";
 
 import { auth } from "../Services/Firebase";
-import {onAuthStateChanged} from "firebase/auth";
-
+import { onAuthStateChanged } from "firebase/auth";
 
 export default class Home extends Component {
   static contextType = context;
@@ -28,14 +27,11 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.listar();
-    //this.listarVistas() 
-    console.log(auth.currentUser)
-   
+    
   }
   componentDidUpdate(prevProps, prevState) {
     const contex = this.context;
     if (contex.Movies !== this.state.Movies) {
-      console.log('pokemons state has changed.')
       this.setState({ Movies: this.context.Movies });
     }
   }
@@ -53,16 +49,8 @@ export default class Home extends Component {
     this.setState({ FirePelis: Arrpelis });
   }
 
-
-  listarVistas = () =>{
-    
-    let tempPeliculas = [];
-    const contex = this.context;
-   console.log("xsad  ")
-    contex.Movies && this.setState({ Movies: this.context.Movies });
-    contex.Movies && console.log(this.state.Movies)
-  }
- /* renderList() {
+ 
+  /* renderList() {
     return this.state.Pelicula.map((item2) => (
       <PeliculaComp key={item2.id} Pelicula={item2} />
     ));
@@ -80,17 +68,16 @@ export default class Home extends Component {
         <Titulo />
 
         <div className="d-flex flex-wrap justify-content-center">
-          {this.state.FirePelis.length > 0
-            && this.state.FirePelis.map((pel) => (
-                <PeliculaComp2
-                  key={pel.id}
-                  Pelicula={pel}
-                  inclu={
-                    this.context.Movies &&  this.context.Movies.includes(pel.id)
-                  }
-                />
-              ))
-           }
+          {this.state.FirePelis.length > 0 &&
+            this.state.FirePelis.map((pel) => (
+              <PeliculaComp2
+                key={pel.id}
+                Pelicula={pel}
+                inclu={
+                  this.context.Movies && this.context.Movies.includes(pel.id)
+                }
+              />
+            ))}
         </div>
 
         <Footer />

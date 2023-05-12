@@ -15,7 +15,7 @@ const setUserData = (user) =>{
     emailVerified: user.emailVerified
   }
 }
-const user = auth.currentUser;
+//const user = auth.currentUser;
 export const getUsetAct = () => {
   onAuthStateChanged(auth, (user) => {
     console.log(user)
