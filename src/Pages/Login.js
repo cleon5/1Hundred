@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { NavLink, } from "react-router-dom";
 import "../Constants/Login.css";
 import Navbar from "../Components/Navbar";
-import { LoginGoogle } from "../Services/FirebaseAuth";
+import { LoginGoogle, Registro, LoginEmail } from "../Services/FirebaseAuth";
 
 export class Login extends Component {
   
@@ -14,11 +15,19 @@ export class Login extends Component {
   
   changeStateLogin() {
     this.setState({ login: !this.state.login });
+   
   }
  async GoogleLogin() {
     await LoginGoogle();
     
    
+  }
+  async LoginCorreo(){
+    await LoginEmail()
+
+  }
+  async Registrarse(){
+    await Registro()
   }
   render() {
     return (
@@ -28,7 +37,7 @@ export class Login extends Component {
           <div className="loginCard ">
             <div className="rightCard">
               <h1>Hola cinefilo</h1>
-              <h3>100 peliculas que todos deberian ver antes de morir</h3>
+              <h3>Lo que tienes que ver antes de morir</h3>
             </div>
             <div className="line"></div>
             <div className="leftCard">

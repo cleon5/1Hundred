@@ -14,7 +14,7 @@ const PeliculaComp2 = ({ Pelicula = [], inclu }) => {
   };
 
   return (
-    <div className={include ? "card Padin opacity": "card Padin"}>
+    <div className={!include ? "card Padin opacity": "card Padin"}>
       <Link className=" Poster " to={`/Pelicula/${Pelicula.id}`}>
         <img
           src={"http://image.tmdb.org/t/p/w500" + Pelicula.poster_path}

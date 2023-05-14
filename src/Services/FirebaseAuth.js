@@ -42,7 +42,7 @@ export const Registro = async (email, password) => {
       console.log(error);
     });
 };
-export const Login = async (email, password) => {
+export const LoginEmail = async (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
