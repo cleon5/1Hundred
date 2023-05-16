@@ -19,6 +19,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      lista:1,
     };
   }
 
@@ -28,16 +29,22 @@ export default class Home extends Component {
   componentDidUpdate(prevProps, prevState) {
 
   }
+  tipo=(dato)=>{
+    console.log(dato)
+    this.setState({ lista:dato })
+    console.log(this.state.lista)
+
+  }
 
 
   render() {
     return (
       <div>
-        <Navbar brand="1-Hundred Peliculas" />
+        <Navbar brand="1-Hundred Peliculas" tipo={this.tipo}/>
         <Titulo />
 
        
-        <Lista></Lista>
+        <Lista tipo={this.state.lista}></Lista>
 
         <Footer />
       </div>

@@ -5,7 +5,7 @@ import { LogOut, getUsetAct } from "../Services/FirebaseAuth";
 import { context, useAuth } from "../Services/ContexAuth";
 import { useNavigate } from "react-router-dom";
 
-const navbar = ({ brand }) => {
+const navbar = ({ brand, tipo }) => {
   const [loged, setloged] = useState();
 
   const cont = useContext(context);
@@ -44,11 +44,25 @@ const navbar = ({ brand }) => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <NavLink to="/" className="nav-link active">
               Home
             </NavLink>
+
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Listas
+              </a>
+              <ul class="dropdown-menu  dropdown-menu-dark">
+            <li><button class="dropdown-item" onClick={()=> tipo(1)} >Peliculas</button></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><button class="dropdown-item" onClick={()=> tipo(2)}>Series</button></li>
+            <li><button class="dropdown-item" onClick={()=> tipo(3)}>Caricaturas</button></li>
+            <li><button class="dropdown-item" onClick={()=> tipo(4)}>Animes</button></li>
+          </ul>
+           </li>
 
             {atu.login ? (
               <li className="nav-item dropdown">
@@ -76,6 +90,7 @@ const navbar = ({ brand }) => {
              
           </div>
         </div>
+
       </div>
     </nav>
   );

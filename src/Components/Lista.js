@@ -35,10 +35,17 @@ export class Lista extends Component {
     if (contex.Movies !== this.state.Movies) {
       this.setState({ Movies: this.context.Movies });
     }
+    if(this.props.tipo !== prevProps.tipo){
+      this.listar()
+    }
   }
+
   async listar() {
+    let listaTipo = this.props.tipo;
+    console.log(listaTipo)
     this.setState({ loading: true });
-    const pelis = await getDocument("Listas", "listaPeli");
+    let listas = ["listaPeli", "listaSeries", "listaCaricaturas", "listaAnimes"]
+    const pelis = await getDocument("Listas", listas[listaTipo-1]);
 
     this.setState({ loading: false });
     console.log(this.state.loading);
@@ -46,9 +53,11 @@ export class Lista extends Component {
     let Arrpelis = [];
     for (var i in pelis) {
       Arrpelis.push(pelis[i]);
+      console.log(pelis[i])
     }
     this.setState({ FirePelis: Arrpelis });
   }
+
 
  
 
@@ -61,6 +70,7 @@ export class Lista extends Component {
               <PeliculaComp2
                 key={pel.id}
                 Pelicula={pel}
+                Tipo={this.props.tipo}
                 inclu={
                   this.context.Movies && this.context.Movies.includes(pel.id)
                 }

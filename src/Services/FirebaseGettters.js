@@ -12,10 +12,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { auth } from "../Services/Firebase";
-import {onAuthStateChanged} from "firebase/auth";
-import { getUsetAct } from "../Services/FirebaseAuth";
 
-let userLocal;
 export const getDocument = async (Collection, document) => {
   const docRef = doc(db, Collection, document);
   const docSnap = await getDoc(docRef);
@@ -60,7 +57,26 @@ const AgregarPeliculaVistaUser = (Peliculas, userid) => {
     PeliculasVistas: Peliculas,
   });
 };
+const AgregarSeriesVistaUser = (Series, userid) => {
+  updateDoc(doc(db, "Users", userid), {
+    SeriesVistas: Series,
+  });
+};
+export const SeriesVistasUpdate = async(id)=>{
+  let user = await getUser();
+  let SeriesVistas = user.SeriesVistas;
+  console.log(SeriesVistas);
+  if (SeriesVistas == undefined) {
+    SeriesVistas = [id];
+  } else if (!SeriesVistas.includes(id)) {
+    SeriesVistas.push(id);
+  } else {
+    SeriesVistas.splice(SeriesVistas.indexOf(id), 1);
+  }
 
+  console.log(SeriesVistas);
+  AgregarSeriesVistaUser(SeriesVistas, user.user.uid);
+}
 export const PeliculasVistasUpdate = async (id) => {
   let user = await getUser();
   let PeliculasVistas = user.PeliculasVistas;

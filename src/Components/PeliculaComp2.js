@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { getDocument, getUser, PeliculasVistasUpdate } from "../Services/FirebaseGettters";
 
 
-const PeliculaComp2 = ({ Pelicula = [], inclu }) => {
+const PeliculaComp2 = ({ Pelicula = [], inclu, Tipo, }) => {
   const [include, setinclude] = useState(inclu)
   const clicHeard = (id) => {
     console.log(id);
@@ -15,7 +15,7 @@ const PeliculaComp2 = ({ Pelicula = [], inclu }) => {
 
   return (
     <div className={!include ? "card Padin opacity": "card Padin"}>
-      <Link className=" Poster " to={`/Pelicula/${Pelicula.id}`}>
+      <Link className=" Poster " to={Tipo ==1 ?`/Pelicula/${Pelicula.id}`:`/Serie/${Pelicula.id}`}>
         <img
           src={"http://image.tmdb.org/t/p/w500" + Pelicula.poster_path}
           className=" Poster "
@@ -23,7 +23,7 @@ const PeliculaComp2 = ({ Pelicula = [], inclu }) => {
         />
       </Link>
       <div className="TituloCard">
-        <h5 className="card-title">{Pelicula.original_title +include} </h5>
+        <h5 className="card-title">{Tipo==1 ?Pelicula.original_title : Pelicula.original_name} </h5>
         <h6 className="card-subtitle mb-2">{Pelicula.vote_average}</h6>
       </div>
       <div className="d-flex justify-content-center Quess">
