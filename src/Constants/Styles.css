@@ -24,7 +24,7 @@ body {
   overflow: hidden;
   transition: all .7s;
 }
-.Padin:hover .card-title, .PadinActor .card-title{
+.Padin:hover .cardTitle, .PadinActor .cardTitle{
     color: rgb(255, 255, 255);
     transition: all 1s;
     text-shadow: 0px 0px 18px rgba(0, 0, 0, 0.842);
@@ -38,14 +38,14 @@ body {
 .fa-heart{
   color: #ffdf0f;
 }
-/*.Padin .card-title, .Padin .card-subtitle:hover {
+/*.Padin .cardTitle, .Padin .card-subtitle:hover {
   color: rgb(255, 255, 255);
 }
 
 .Padin .card-subtitle:hover {
     color: rgb(158, 158, 158);
 }*/
-.card-title {
+.cardTitle {
   font-size: 0.8vw;
   text-overflow: ellipsis;
   overflow: hidden;

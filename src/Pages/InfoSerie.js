@@ -16,6 +16,7 @@ function InfoSerie() {
   const [Videos, setVideos] = useState([]);
   const [Director, setDirector] = useState([]);
   const [Cast, setCast] = useState([]);
+  const [Seasons, setSeasons] = useState([]);
 
   const getSerie = async () => {
     console.log(id);
@@ -23,6 +24,16 @@ function InfoSerie() {
     console.log(Serie);
     setSerie(Serie);
 
+    //setSeasons(Object.values(Serie.seasons))
+    
+    let s= []
+
+    for (let season in Serie.seasons) {
+      s.push(Serie.seasons[season])
+      console.log(Serie.seasons[season])
+    }
+    setSeasons(s)
+    console.log(Seasons)
     let creditos = await getDocument("CreditosSeries", id);
 
     for (let i in creditos.crew) {
@@ -34,8 +45,9 @@ function InfoSerie() {
     for (let i = 0; i < lengthCast; i++) {
       arrCast.push(creditos.cast[i]);
     }
-    setCast(arrCast);
 
+    setCast(arrCast);
+    console.log(Cast);
     let providers = await getDocument("ProvidersSeries", id);
     setProviders(providers);
 
@@ -60,7 +72,6 @@ function InfoSerie() {
       "></scr' + 'ipt>');" +
       "</script>";
 
-    console.log(x);
   };
 
   useEffect(() => {
@@ -97,12 +108,13 @@ function InfoSerie() {
             <div className="informacionPortada">
               <p className="txtPelicula">{Serie.tagline}</p>
               <p>
-                Director: {Director.name} <br />
-                Fecha de estreno: {Serie.release_date}
+                Creado por:{" "}
+                {Serie.created_by &&
+                  Serie.created_by.map((i) => " - " + i.name)}
+                Fecha de estreno: {Serie.first_air_date}
                 <br />
                 Generos:
-                {Serie.genres &&
-                  Serie.genres.map((item) => " - " + item.name)}
+                {Serie.genres && Serie.genres.map((item) => " - " + item.name)}
               </p>
             </div>
           </div>
@@ -117,21 +129,21 @@ function InfoSerie() {
             <h3>Informacion</h3>
             <hr />
             <div className="VistaGenera">
-              <h3 className=" mt-3 text-decoration-underline">
-                {Serie.title}
-              </h3>
+              <h3 className=" mt-3 text-decoration-underline">{Serie.title}</h3>
 
               <p className="descripcion">{Serie.overview}</p>
 
               <h3 className="text-decoration-underline mt-4">Datos</h3>
               <p className="descripcion">
-                <span className="titleGeneral">Director:</span> {Director.name}{" "}
+                <span className="titleGeneral">Creado por: </span>
+                {Serie.created_by &&
+                  Serie.created_by.map((i) => " - " + i.name)}
                 <br />
                 <span className="titleGeneral">Fecha de estreno:</span>{" "}
-                {Serie.release_date}
+                {Serie.first_air_date}
                 <br />
-                <span className="titleGeneral">Duracion:</span>
-                {Serie.runtime}
+                <span className="titleGeneral">Duracion: </span>
+                {Serie.episode_run_time && Serie.episode_run_time.length > 0? Serie.episode_run_time[0]:50} min
                 <br />
                 <span className="titleGeneral">Calificacion :</span>
                 {Serie.vote_average}
@@ -141,7 +153,7 @@ function InfoSerie() {
                 <div className="text-center m-2">
                   {Serie.genres &&
                     Serie.genres.map((item) => (
-                      <span key={item.id} class="badge m-1 text-bg-primary">
+                      <span key={item.id} className="badge m-1 text-bg-primary">
                         {item.name}
                       </span>
                     ))}
@@ -182,9 +194,53 @@ function InfoSerie() {
       </div>
       <div className="PelisSimilares">
         <div className="Media">
+          <h3>Temporadas</h3>
+          <hr />
+
+  
+            {Serie.seasons &&
+            Serie.seasons.map((season, key) => 
+            <div key={key} className="card mb-3" style={{"max-width": '640px',}}>
+            <div className="row g-0">
+              <div className="col-md-4">
+                <img
+                  src={
+                    season.poster_path &&
+                    "http://image.tmdb.org/t/p/w500" + season.poster_path
+                  }
+                  className="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title">{season.name} </h5>
+                 
+                  <p className="card-text">
+                    <small className="text-muted">
+                    
+                    Date: {season.air_date} <br/>
+                    Episodes: {season.episode_count} <br/>
+                    </small>
+                  </p>
+                   <p className="card-text">
+                   
+                   {season.overview}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          )})
+        
+        
+        </div>
+      </div>
+      <div className="PelisSimilares">
+        <div className="Media">
           <h3>Recomendaciones</h3>
           <hr />
-          <Recomendaciones />
+          <Recomendaciones Tipo={"Series"} />
         </div>
       </div>
       <Footer />

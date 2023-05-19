@@ -181,7 +181,7 @@ export default function InfoMovie() {
       <div className="Media">
             <h3>Recomendaciones</h3>
             <hr />
-            <Recomendaciones />
+            <Recomendaciones Tipo={"Peliculas"}/>
           </div>
 
       </div>

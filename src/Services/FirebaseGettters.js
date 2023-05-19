@@ -27,8 +27,8 @@ export const getMovie = async (idPelicula) => {
   return docSnap.data();
 };
 
-export const getMovieWhere = async () => {
-  const movieRef = collection(db, "Peliculas");
+export const getWhere = async (tipo) => {
+  const movieRef = collection(db, tipo);
   const q = query(
     movieRef,
     where("popularity", ">", "40"),

@@ -2,13 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import PeliculaComp from "../PeliculaComp";
 import PeliculaComp2 from "../PeliculaComp2";
-import { getMovieWhere } from "../../Services/FirebaseGettters";
+import { getWhere } from "../../Services/FirebaseGettters";
 
-export default function Recomendaciones() {
+export default function Recomendaciones({Tipo}) {
   const [Recomendaciones, setRecomendaciones] = useState([]);
 
   const get = async () => {
-    const recomendacion = await getMovieWhere();
+    const recomendacion = await getWhere(Tipo);
     setRecomendaciones(recomendacion);
   };
   useEffect(() => {

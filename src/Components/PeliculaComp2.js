@@ -23,7 +23,7 @@ const PeliculaComp2 = ({ Pelicula = [], inclu, Tipo, }) => {
         />
       </Link>
       <div className="TituloCard">
-        <h5 className="card-title">{Tipo==1 ?Pelicula.original_title : Pelicula.original_name} </h5>
+        <h5 className="cardTitle card-title ">{Tipo==1 ?Pelicula.original_title : Pelicula.original_name} </h5>
         <h6 className="card-subtitle mb-2">{Pelicula.vote_average}</h6>
       </div>
       <div className="d-flex justify-content-center Quess">
