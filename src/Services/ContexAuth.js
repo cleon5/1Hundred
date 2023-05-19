@@ -14,6 +14,7 @@ export function ContexAuth({ children }) {
   const [User, setUser] = useState(auth.currentUser);
   const [login, setlogin] = useState(false);
   const [Movies, setMovies] = useState();
+  const [Series, setSeries] = useState();
 
   const getMovies = async () => {
     let movies = await getUser();
@@ -31,6 +32,7 @@ export function ContexAuth({ children }) {
         setlogin(true);
         let u = await getUserId(userActual)
         setMovies(Object.values(u.PeliculasVistas));
+        setSeries(Object.values(u.SeriesVistas));
         console.log(Movies);
       }
 
@@ -44,7 +46,7 @@ export function ContexAuth({ children }) {
   }, []);
 
   return (
-    <context.Provider value={{ login, User, Movies }}>
+    <context.Provider value={{ login, User, Movies, Series }}>
       {children}
     </context.Provider>
   );

@@ -1,38 +1,58 @@
 import React, { Component } from "react";
-import { NavLink, } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../Constants/Login.css";
 import Navbar from "../Components/Navbar";
 import { LoginGoogle, Registro, LoginEmail } from "../Services/FirebaseAuth";
+import { ContexAuth, context } from "../Services/ContexAuth";
 
 export class Login extends Component {
-  
+  static contextType = context;
+
   constructor(props) {
     super(props);
+    this.cambioText = this.cambioText.bind(this);
     this.state = {
       login: true,
+      error: false,
+      datos: {
+        correo: "",
+        password: "",
+        confirm: "",
+      },
     };
   }
-  
+  componentDidMount() {}
   changeStateLogin() {
     this.setState({ login: !this.state.login });
-   
   }
- async GoogleLogin() {
+  cambioText(event) {
+    const { name, value } = event.target;
+    const newValues = {
+      ...this.state.datos,
+      [name]: value,
+    };
+    this.setState({ datos: newValues });
+    console.log(this.state.datos);
+  }
+  async GoogleLogin() {
     await LoginGoogle();
-    
-   
   }
-  async LoginCorreo(){
-    await LoginEmail()
-
+  async LoginCorreo() {
+    await LoginEmail(this.state.datos.correo, this.state.datos.password);
   }
-  async Registrarse(){
-    await Registro()
+  async Registrarse() {
+    if (this.state.datos.confirm === this.state.datos.password) {
+      await Registro(this.state.datos.correo, this.state.datos.password);
+    } else {
+      this.setState({ datos: { password: "", confirm: "" } });
+      console.log("error");
+    }
   }
   render() {
     return (
       <div>
         <Navbar brand="1-Hundred" className="nab" />
+
         <div className="bodyLogin">
           <div className="loginCard ">
             <div className="rightCard">
@@ -41,23 +61,37 @@ export class Login extends Component {
             </div>
             <div className="line"></div>
             <div className="leftCard">
-              {this.state.login ? (
+              {this.context.login ? (
+                <div>Usuario logeado</div>
+              ) : this.state.login ? (
                 <div>
                   <h1>Login</h1>
                   <div className="Datos">
                     <label>
                       Correo
-                      <input type="text" placeholder=""></input>
+                      <input
+                        name="correo"
+                        type="text"
+                        value={this.state.datos.correo}
+                        onChange={this.cambioText}
+                        placeholder=""
+                      ></input>
                     </label>
                     <label>
                       Password
-                      <input type="text" placeholder=""></input>
+                      <input
+                        name="password"
+                        type="text"
+                        value={this.state.datos.password}
+                        onChange={this.cambioText}
+                        placeholder=""
+                      ></input>
                     </label>
                   </div>
                   <div className="btns">
                     <button
                       className="btn btn-primary"
-                      onClick={() => this.changeStateLogin()}
+                      onClick={() => this.LoginCorreos()}
                     >
                       Inicia Sesion
                     </button>
@@ -80,27 +114,45 @@ export class Login extends Component {
                   <div className="Datos">
                     <label>
                       Correo
-                      <input type="text" placeholder=""></input>
+                      <input
+                        name="correo"
+                        type="text"
+                        value={this.state.datos.correo}
+                        onChange={this.cambioText}
+                        placeholder=""
+                      ></input>
                     </label>
                     <label>
                       Password
-                      <input type="text" placeholder=""></input>
+                      <input
+                        name="password"
+                        type="text"
+                        value={this.state.datos.password}
+                        onChange={this.cambioText}
+                        placeholder=""
+                      ></input>
                     </label>
                     <label>
                       Confirm Password
-                      <input type="text" placeholder=""></input>
+                      <input
+                        name="confirm"
+                        type="text"
+                        value={this.state.datos.confirm}
+                        onChange={this.cambioText}
+                        placeholder=""
+                      ></input>
                     </label>
                   </div>
                   <div className="btns">
                     <button
                       className="btn btn-primary"
-                      onClick={() => this.changeStateLogin()}
+                      onClick={() => this.Registrarse()}
                     >
                       Registrarse
                     </button>
                   </div>
                   <p className="ChangeStateLogin">
-                    Si ya tienes cuenta inicia sesion 
+                    Si ya tienes cuenta inicia sesion
                     <a onClick={() => this.changeStateLogin()}> aqui</a>
                   </p>
                 </div>

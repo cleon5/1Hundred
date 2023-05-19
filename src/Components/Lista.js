@@ -23,6 +23,7 @@ export class Lista extends Component {
       FirePelis: [],
       loading: true,
       Movies: [],
+      Series:[],
     };
   }
 
@@ -32,8 +33,9 @@ export class Lista extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const contex = this.context;
-    if (contex.Movies !== this.state.Movies) {
+    if (contex.Movies !== this.state.Movies || contex.Series !== this.state.Series) {
       this.setState({ Movies: this.context.Movies });
+      this.setState({Series:this.context.Series})
     }
     if(this.props.tipo !== prevProps.tipo){
       this.listar()
@@ -72,7 +74,8 @@ export class Lista extends Component {
                 Pelicula={pel}
                 Tipo={this.props.tipo}
                 inclu={
-                  this.context.Movies && this.context.Movies.includes(pel.id)
+                  this.props.tipo == 1 ? this.context.Movies && this.context.Movies.includes(pel.id)
+                  :  this.context.Series && this.context.Series.includes(pel.id)
                 }
               />
             ))}

@@ -2,14 +2,14 @@ import React, {useState} from "react";
 import "../Constants/Styles.css";
 import ModalQuess from "../Components/ModalQuess";
 import { Link, NavLink } from "react-router-dom";
-import { getDocument, getUser, PeliculasVistasUpdate } from "../Services/FirebaseGettters";
+import { getDocument, getUser, PeliculasVistasUpdate, SeriesVistasUpdate} from "../Services/FirebaseGettters";
 
 
 const PeliculaComp2 = ({ Pelicula = [], inclu, Tipo, }) => {
   const [include, setinclude] = useState(inclu)
   const clicHeard = (id) => {
     console.log(id);
-    PeliculasVistasUpdate(id)
+    Tipo==1 ? PeliculasVistasUpdate(id): SeriesVistasUpdate(id)
     setinclude(!include)
   };
 
