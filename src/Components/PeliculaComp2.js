@@ -8,7 +8,6 @@ import { getDocument, getUser, PeliculasVistasUpdate, SeriesVistasUpdate} from "
 const PeliculaComp2 = ({ Pelicula = [], inclu, Tipo, }) => {
   const [include, setinclude] = useState(inclu)
   const clicHeard = (id) => {
-    console.log(id);
     Tipo==1 ? PeliculasVistasUpdate(id): SeriesVistasUpdate(id)
     setinclude(!include)
   };

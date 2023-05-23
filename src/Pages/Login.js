@@ -32,7 +32,6 @@ export class Login extends Component {
       [name]: value,
     };
     this.setState({ datos: newValues });
-    console.log(this.state.datos);
   }
   async GoogleLogin() {
     await LoginGoogle();

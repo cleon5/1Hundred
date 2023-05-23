@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import "../Constants/infoMovie.css";
-import DisponibleComp from "../Components/Info/DisponibleComp";
 import { getDocument, getMovie } from "../Services/FirebaseGettters";
 import Actor from "../Components/Info/Actor";
 import YoutubeEmbed from "../Components/Info/YoutubeEmbed";

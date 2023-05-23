@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import PeliculaComp from "../PeliculaComp";
 import PeliculaComp2 from "../PeliculaComp2";
 import { getWhere } from "../../Services/FirebaseGettters";
 

@@ -45,11 +45,8 @@ export default function AddPelicula() {
 
   });
   const [genero, setgenero] = useState([])
-  console.log(genero)
-
   const cambioText= (event) =>{
       const { name, value } = event.target;
-      console.log(event.target.valor);
       const newValues = {
         ...Values,
         [name]: value,
@@ -61,10 +58,8 @@ export default function AddPelicula() {
   const handleCallback = (id) =>{
     let sel = Values.generos
     let find = sel.findIndex(i => i.id == id)
-    console.log(find)
     if (find > -1) {
       sel.splice(find ,1)
-      console.log(sel)
     } else {
       sel.push({"id":id})
     }
@@ -73,13 +68,11 @@ export default function AddPelicula() {
       ["generos"]: sel,
     };
     setValues(newValues )
-    console.log(Values)
 
   } 
   const saveDirec = (event) =>{
     const { value } = event.target;
     let id = parseInt(value)
-    console.log(event.target.valor);
     let direc = {"id":id}
     const newValues = {
       ...Values,
@@ -88,12 +81,10 @@ export default function AddPelicula() {
     };
 
     setValues(newValues);
-    console.log(Values)
   }
 
   const saveActor = (event) =>{
     const { value } = event.target;
-    console.log(event.target.valor);
     let direc = {"id":value}
     const newValues = {
       ...Values,

@@ -14,6 +14,12 @@ const navbar = ({ brand, tipo }) => {
   console.log(atu);
 
   //console.log(cont)
+  const SetLocalStorage= (tipo)=> {
+    localStorage.setItem('Tipo', JSON.stringify(tipo));
+  }
+  const GetLocalStorage=()=>{
+    const items = JSON.parse(localStorage.getItem('Tipo'));
+  }
   const singOut = async () => {
     console.log("logout");
     LogOut();

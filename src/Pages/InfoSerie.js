@@ -19,21 +19,15 @@ function InfoSerie() {
   const [Seasons, setSeasons] = useState([]);
 
   const getSerie = async () => {
-    console.log(id);
     let Serie = await getDocument("Series", id);
-    console.log(Serie);
     setSerie(Serie);
-
-    //setSeasons(Object.values(Serie.seasons))
     
     let s= []
 
     for (let season in Serie.seasons) {
       s.push(Serie.seasons[season])
-      console.log(Serie.seasons[season])
     }
     setSeasons(s)
-    console.log(Seasons)
     let creditos = await getDocument("CreditosSeries", id);
 
     for (let i in creditos.crew) {
@@ -45,9 +39,7 @@ function InfoSerie() {
     for (let i = 0; i < lengthCast; i++) {
       arrCast.push(creditos.cast[i]);
     }
-
     setCast(arrCast);
-    console.log(Cast);
     let providers = await getDocument("ProvidersSeries", id);
     setProviders(providers);
 
@@ -195,12 +187,19 @@ function InfoSerie() {
       <div className="PelisSimilares">
         <div className="Media">
           <h3>Temporadas</h3>
+          <div className="d-flex justify-content-center">
+            <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <i className="fa-solid fa-arrow-down" ></i>
+            </button>
+          </div>
+          
           <hr />
 
-  
-            {Serie.seasons &&
+          
+          <div className="d-flex flex-wrap justify-content-evenly">
+          {Serie.seasons &&
             Serie.seasons.map((season, key) => 
-            <div key={key} className="card mb-3" style={{"max-width": '640px',}}>
+            <div  id="collapseExample" key={key} className="card mb-3 collapse cardTemporadas" >
             <div className="row g-0">
               <div className="col-md-4">
                 <img
@@ -231,13 +230,18 @@ function InfoSerie() {
               </div>
             </div>
           </div>
-          )})
+          )}
+
+          </div>
+       
         
         
         </div>
       </div>
       <div className="PelisSimilares">
+        
         <div className="Media">
+          
           <h3>Recomendaciones</h3>
           <hr />
           <Recomendaciones Tipo={"Series"} />

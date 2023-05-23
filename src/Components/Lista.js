@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import "../Constants/Styles.css";
-import Navbar from "../Components/Navbar";
-import PeliculaComp from "../Components/PeliculaComp";
-import Titulo from "../Components/Titulo";
 import Peli from "../Constants/Peliculas.json";
 import { getDocument, getUser, getPeliculasVistas } from "../Services/FirebaseGettters";
 import PeliculaComp2 from "./PeliculaComp2";
-import Footer from "../Components/Footer";
 import { ContexAuth, context } from "../Services/ContexAuth";
 
-import { auth } from "../Services/Firebase";
-import { onAuthStateChanged } from "firebase/auth";
 
 
 export class Lista extends Component {
@@ -24,11 +18,21 @@ export class Lista extends Component {
       loading: true,
       Movies: [],
       Series:[],
+      Tipo:1,
     };
   }
-
+  GetLocalStorage(){
+    const item = JSON.parse(localStorage.getItem('Tipo'));
+    this.setState({Tipo:item})
+    return item
+  }
+  SetLocalStorage(tipo){
+    localStorage.setItem('Tipo', JSON.stringify(tipo));
+  }
   componentDidMount() {
+    this.GetLocalStorage()
     this.listar();
+
     
   }
   componentDidUpdate(prevProps, prevState) {
@@ -38,30 +42,26 @@ export class Lista extends Component {
       this.setState({Series:this.context.Series})
     }
     if(this.props.tipo !== prevProps.tipo){
+      this.SetLocalStorage(this.props.tipo )
       this.listar()
     }
   }
 
   async listar() {
-    let listaTipo = this.props.tipo;
-    console.log(listaTipo)
+
     this.setState({ loading: true });
     let listas = ["listaPeli", "listaSeries", "listaCaricaturas", "listaAnimes"]
-    const pelis = await getDocument("Listas", listas[listaTipo-1]);
+    let t = this.GetLocalStorage();
+    const pelis = await getDocument("Listas", listas[t-1]);
 
     this.setState({ loading: false });
-    console.log(this.state.loading);
 
     let Arrpelis = [];
     for (var i in pelis) {
       Arrpelis.push(pelis[i]);
-      console.log(pelis[i])
     }
     this.setState({ FirePelis: Arrpelis });
   }
-
-
- 
 
   render() {
     return (
