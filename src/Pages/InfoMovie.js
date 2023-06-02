@@ -7,6 +7,8 @@ import Actor from "../Components/Info/Actor";
 import YoutubeEmbed from "../Components/Info/YoutubeEmbed";
 import Footer from "../Components/Footer";
 import Recomendaciones from "../Components/Info/Recomendaciones";
+import Comentarios from "../Components/Info/Comentarios";
+import AddComentario from "../Components/Info/AddComentario";
 
 export default function InfoMovie() {
   let { id } = useParams();
@@ -156,8 +158,8 @@ export default function InfoMovie() {
               </div>
             </div>
           </div>
-
-         
+          <Comentarios />
+         <AddComentario/>
         </div>
 
                       <div className="sidebarCast">

@@ -138,6 +138,50 @@
 .cardTemporadas{
   width: 30%;
 }
+.Comentario{
+  width: 85%;
+  margin: 0 auto;
+}
+.HeadComentarioText .nombreComentario{
+  font-size: 1.7rem;
+  margin: 10px;
+}
+.HeadComentarioText .fechaComentatio{
+  font-size: 1.4rem;
+  margin: 10px;
+}
+.cuerpoComentatio p{
+  word-wrap: break-word;
+}
+.imgComentario{
+  margin: 10px;
+  border-radius: 10px; 
+}
+.incoComentario{
+  width: 80px;
+  height: 80px;
+  border-radius: 10px; 
+}
+/*Add comentario*/
+.addComentario div{
+  
+}
+.inputComentario{
+  margin: 10px;
+  width: 100%;
+  
+}
+.contInputComentario{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 80%;
+
+}
+.addComentario .btn{
+  height: 50px;
+
+}
 @media screen and (max-width: 880px) {
   .infoPelicula {
     flex-direction: column-reverse;

@@ -77,6 +77,18 @@ export const SeriesVistasUpdate = async(id)=>{
   console.log(SeriesVistas);
   AgregarSeriesVistaUser(SeriesVistas, user.user.uid);
 }
+const AgregarComentarioPelicula = (Comentario, idMovie, userId) => {
+  updateDoc(doc(db, "ComentariosPeliculas", idMovie, userId), {
+    Comentario: Comentario,
+    Img:img,
+    Nombre:nombre,
+    Fecha:fecha
+  });
+};
+export const PostComentario = async(comentario, id) =>{
+  let user = await getUser();
+
+}
 export const PeliculasVistasUpdate = async (id) => {
   let user = await getUser();
   let PeliculasVistas = user.PeliculasVistas;
