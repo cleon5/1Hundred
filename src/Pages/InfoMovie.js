@@ -159,7 +159,7 @@ export default function InfoMovie() {
             </div>
           </div>
           <Comentarios />
-         <AddComentario/>
+         <AddComentario id={id}/>
         </div>
 
                       <div className="sidebarCast">

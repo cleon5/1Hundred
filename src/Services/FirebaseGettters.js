@@ -9,7 +9,7 @@ import {
   limit,
   collection,
   getDocs,
-  updateDoc,
+  updateDoc,addDoc
 } from "firebase/firestore";
 import { auth } from "../Services/Firebase";
 
@@ -77,18 +77,7 @@ export const SeriesVistasUpdate = async(id)=>{
   console.log(SeriesVistas);
   AgregarSeriesVistaUser(SeriesVistas, user.user.uid);
 }
-const AgregarComentarioPelicula = (Comentario, idMovie, userId) => {
-  updateDoc(doc(db, "ComentariosPeliculas", idMovie, userId), {
-    Comentario: Comentario,
-    Img:img,
-    Nombre:nombre,
-    Fecha:fecha
-  });
-};
-export const PostComentario = async(comentario, id) =>{
-  let user = await getUser();
 
-}
 export const PeliculasVistasUpdate = async (id) => {
   let user = await getUser();
   let PeliculasVistas = user.PeliculasVistas;
@@ -100,7 +89,36 @@ export const PeliculasVistasUpdate = async (id) => {
   } else {
     PeliculasVistas.splice(PeliculasVistas.indexOf(id), 1);
   }
-
   console.log(PeliculasVistas);
   AgregarPeliculaVistaUser(PeliculasVistas, user.user.uid);
+};
+
+export const PostComentario = async(comentario, id) =>{
+  let user = await getUser();
+
+}
+
+export const AgregarComentarioPelicula = async(Comentario, idMovie) => {
+  const fecha = new Date();
+  let userId = await getUser();
+  userId = userId.user
+  await setDoc(doc(db, `ComentariosPeliculas/${idMovie}/Comentarios`, userId.displayName ), {
+    Comentario: Comentario,
+    Img:userId.photoURL,
+    Nombre:userId.displayName,
+    Fecha:fecha.toLocaleDateString()
+  });
+};
+
+export const AgregarComentarioSerie = async(Comentario, idSerie) => {
+  const fecha = new Date();
+  let userId = await getUser();
+  userId = userId.user
+  console.log(userId)
+  await setDoc(doc(db, `ComentariosSeries/${idSerie}/Comentarios`, userId.displayName ), {
+    Comentario: Comentario,
+    Img:userId.photoURL,
+    Nombre:userId.displayName,
+    Fecha:fecha.toLocaleDateString()
+  });
 };
