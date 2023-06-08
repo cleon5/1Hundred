@@ -98,11 +98,12 @@ export const PostComentario = async(comentario, id) =>{
 
 }
 
-export const AgregarComentarioPelicula = async(Comentario, idMovie) => {
+export const AgregarComentario = async(Comentario, idMovie, tipo) => {
+  console.log(Comentario)
   const fecha = new Date();
   let userId = await getUser();
   userId = userId.user
-  await setDoc(doc(db, `ComentariosPeliculas/${idMovie}/Comentarios`, userId.displayName ), {
+  await setDoc(doc(db, `Comentarios${tipo}/${idMovie}/Comentarios`, userId.email ), {
     Comentario: Comentario,
     Img:userId.photoURL,
     Nombre:userId.displayName,
@@ -110,15 +111,20 @@ export const AgregarComentarioPelicula = async(Comentario, idMovie) => {
   });
 };
 
-export const AgregarComentarioSerie = async(Comentario, idSerie) => {
-  const fecha = new Date();
-  let userId = await getUser();
-  userId = userId.user
-  console.log(userId)
-  await setDoc(doc(db, `ComentariosSeries/${idSerie}/Comentarios`, userId.displayName ), {
-    Comentario: Comentario,
-    Img:userId.photoURL,
-    Nombre:userId.displayName,
-    Fecha:fecha.toLocaleDateString()
+
+
+export const GetComentariosPeliculas = async(idMovie, tipo) =>{
+  //const docRef1 = doc(db, Collection, document);
+  const querySnapshot = await getDocs(collection(db, `Comentarios${tipo}/${idMovie}/Comentarios`));
+  let tmpCom = []
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    tmpCom.push(doc.data())
+    console.log(doc.id, " => ", doc.data());
   });
-};
+
+  //const docRef = doc(db, `Comentarios${tipo}/${idMovie}/Comentarios`, document);
+  //const docSnap = await getDoc(docRef);
+  console.log(tmpCom)
+  return tmpCom;
+}

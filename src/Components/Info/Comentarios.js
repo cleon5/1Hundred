@@ -1,31 +1,50 @@
-import React from "react";
+import React ,{useEffect, useState}from "react";
+import {GetComentariosPeliculas} from  "../../Services/FirebaseGettters"
 
-function Comentarios({}) {
+function Comentarios({id, tipo}) {
+  const [Comentarios, setComentarios] = useState([])
+
+  const getComentarios = async() =>{
+    let tmp;
+    if(tipo == 1){
+      tmp = await GetComentariosPeliculas(id, "Peliculas")
+    }else{
+      tmp = await GetComentariosPeliculas(id, "Series")
+    }
+    
+    setComentarios(tmp);
+  }
+
+  useEffect(() => {
+    getComentarios()
+  }, [])
   
   return (
     <div className="Media">
       <div className="Cast">
         <h3>Comentarios</h3>
         <hr />
-        <div className="d-flex">
-          <div className="Comentario">
+        <div className="d-flex flex-column">
+          {Comentarios && Comentarios.map((coment, key) =>
+            <div key={key} className="Comentario">
             <div className="HeadComentario d-flex">
               <div className="imgComentario">
-                <img className="incoComentario" src="https://lh3.googleusercontent.com/a/AAcHTteRx4n6MpS9DWbvvxvh9vmA7fHlq6WJp00gNnd_FA=s96-c"></img>
+                <img className="incoComentario" src={coment.Img}></img>
               </div>
               <div className="HeadComentarioText">
-                <p className="nombreComentario">Nombre comentarista</p>
-                <p className="fechaComentatio">30-05-2023 </p>
+                <p className="nombreComentario">{coment.Nombre}</p>
+                <p className="fechaComentatio">{coment.Fecha}</p>
               </div>
             </div>
             <div className="cuerpoComentatio">
                 <p className="">
-                    flsngkkjfsadinaflnsadksafnkjldmfkgvf hksajldmfasnfadsni sad adasdadfa adfss jgkalkfalkflafka fklafsklasfklfaaklafkslaksf
-                    klafafsklasfklfaaklafkslaksf klafafsklasfklfaaklafksla ksfklafafsklasfklfaakl afkslaksfklafafsklasfklfaaklafks
-                    laksfklafafsklasfk lfaaklafkslaksfklaf
+                    {coment.Comentario}
                 </p>
-            </div>
+            </div><hr></hr>
           </div>
+          
+          )}
+
         </div>
       </div>
 

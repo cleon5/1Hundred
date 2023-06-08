@@ -1,15 +1,16 @@
 import React,{useEffect, useState} from "react";
-import {AgregarComentarioPelicula} from "../../Services/FirebaseGettters"
+import {AgregarComentario} from "../../Services/FirebaseGettters"
 
-function AddComentario({id}) {
+function AddComentario({id, tipo}) {
   const [Comentario, setComentario] = useState("")
   
   const enviarComentario = () => {
-    AgregarComentarioPelicula(Comentario, id)
+    tipo ==1? AgregarComentario(Comentario, id, "Peliculas"): AgregarComentario(Comentario, id, "Series")
+    
   }
   const cambioText = (comn)=>{
     console.log(comn.target.value)
-    setComentario(comn)
+    setComentario(comn.target.value)
   }
   
   return (
@@ -25,7 +26,7 @@ function AddComentario({id}) {
           ></textarea>
         </div>
 
-        <button className="btn btn-primary p-2" onClick={()=> enviarComentario}>Enviar</button>
+        <button className="btn btn-primary p-2" onClick={()=> enviarComentario()}>Enviar</button>
       </div>
     </div>
   );

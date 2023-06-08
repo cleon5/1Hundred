@@ -8,6 +8,8 @@ import Actor from "../Components/Info/Actor";
 import YoutubeEmbed from "../Components/Info/YoutubeEmbed";
 import Footer from "../Components/Footer";
 import Recomendaciones from "../Components/Info/Recomendaciones";
+import AddComentario from "../Components/Info/AddComentario";
+import Comentarios from "../Components/Info/Comentarios";
 
 function InfoSerie() {
   let { id } = useParams();
@@ -231,9 +233,9 @@ function InfoSerie() {
             </div>
           </div>
           )}
-
           </div>
-       
+          <Comentarios />
+         <AddComentario id={id} tipo={2}/>
         
         
         </div>

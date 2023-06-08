@@ -18,11 +18,9 @@ export default function Home2() {
     let Arrpelis = [];
     setload(false);
     for (var i in pelis) {
-      console.log(pelis[i]);
       Arrpelis.push(pelis[i]);
     }
     setPel(Arrpelis);
-    console.log(Pel);
   };
 
   const renderList = () => {
