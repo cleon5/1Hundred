@@ -18,16 +18,10 @@ const setUserData = (user) =>{
 //const user = auth.currentUser;
 export const getUsetAct = () => {
   onAuthStateChanged(auth, (user) => {
-    console.log(user)
     if (user) {
       const uid = user.uid;
-      console.log(user)
       return user
-      // ...
     } else {
-      // User is signed out
-      // ...
-      console.log(user)
       return null
     }
   });
@@ -39,7 +33,7 @@ export const Registro = async (email, password) => {
       const user = userCredential.user;
     })
     .catch((error) => {
-      console.log(error);
+      
     });
 };
 export const LoginEmail = async (email, password) => {
@@ -48,7 +42,7 @@ export const LoginEmail = async (email, password) => {
       const user = userCredential.user;
     })
     .catch((error) => {
-        console.log(error);
+        
     });
 };
 export const LoginGoogle = () => {
@@ -60,18 +54,12 @@ export const LoginGoogle = () => {
     const token = credential.accessToken;
     const user = result.user;
   }).catch((error) => {
-    console.log(error)
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.customData.email;
-    const credential = GoogleAuthProvider.credentialFromError(error);
+
   });
 };
 
 export const LogOut = () => {
   signOut(auth).then(() => {
-    console.log("out")
   }).catch((error) => {
-    console.log(error)
   });
 };

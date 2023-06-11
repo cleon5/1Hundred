@@ -107,6 +107,11 @@
   height: 310px;
   background-color: black;
 }
+.UserLogeado{
+  font-size: 3rem;
+  text-align: center;
+  
+}
 
 @media screen and (max-width: 800px) {
   .loginCard {

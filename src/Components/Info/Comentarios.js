@@ -25,7 +25,7 @@ function Comentarios({id, tipo}) {
         <h3>Comentarios</h3>
         <hr />
         <div className="d-flex flex-column">
-          {Comentarios && Comentarios.map((coment, key) =>
+          {Comentarios.length!=0 ? Comentarios.map((coment, key) =>
             <div key={key} className="Comentario">
             <div className="HeadComentario d-flex">
               <div className="imgComentario">
@@ -43,6 +43,14 @@ function Comentarios({id, tipo}) {
             </div><hr></hr>
           </div>
           
+          ):(
+            <div className="Comentario">
+            <div className="cuerpoComentatio">
+                <p className="">
+                    Sin comentarios de la pelicula
+                </p>
+            </div><hr></hr>
+          </div>
           )}
 
         </div>

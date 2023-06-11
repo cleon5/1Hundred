@@ -19,9 +19,6 @@ export function ContexAuth({ children }) {
   const getMovies = async () => {
     let movies = await getUser();
     movies && setMovies(Object.values(movies.PeliculasVistas));
-    // if(movies == null)
-    //getMovies()
-    console.log(Object.values(movies.PeliculasVistas));
   };
   const stateUser = async () => {
     let user;
@@ -33,10 +30,7 @@ export function ContexAuth({ children }) {
         let u = await getUserId(userActual)
         setMovies(Object.values(u.PeliculasVistas));
         setSeries(Object.values(u.SeriesVistas));
-        console.log(Movies);
       }
-
-      console.log(userActual);
     });
   };
   useEffect(() => {

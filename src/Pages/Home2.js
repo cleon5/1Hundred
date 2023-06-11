@@ -28,14 +28,6 @@ export default function Home2() {
       <PeliculaComp key={item2.id} Pelicula={item2} />
     ));
   };
-  const renderList2 = () => {
-    console.log(Pel);
-    return Pel
-      ? Pel.map((pel, i) =>
-          pel ? <PeliculaComp2 key={pel.id} Pelicula={pel} /> : null
-        )
-      : null;
-  };
   useEffect(() => {
     listar();
   }, []);

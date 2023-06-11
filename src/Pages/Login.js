@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import "../Constants/Login.css";
 import Navbar from "../Components/Navbar";
 import { LoginGoogle, Registro, LoginEmail } from "../Services/FirebaseAuth";
@@ -46,7 +45,6 @@ export class Login extends Component {
       await Registro(this.state.datos.correo, this.state.datos.password);
     } else {
       this.setState({ datos: { password: "", confirm: "" } });
-      console.log("error");
     }
   }
   render() {
@@ -63,7 +61,7 @@ export class Login extends Component {
             <div className="line"></div>
             <div className="leftCard">
               {this.context.login ? (
-                <div>Usuario logeado</div>
+                <div className="UserLogeado">Usuario logeado</div>
               ) : this.state.login ? (
                 <div>
                   <h1>Login</h1>

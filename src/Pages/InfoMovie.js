@@ -9,14 +9,17 @@ import Footer from "../Components/Footer";
 import Recomendaciones from "../Components/Info/Recomendaciones";
 import Comentarios from "../Components/Info/Comentarios";
 import AddComentario from "../Components/Info/AddComentario";
+import { useAuth } from "../Services/ContexAuth";
 
 export default function InfoMovie() {
   let { id } = useParams();
+  const [Login, setLogin] = useState()
   const [Pelicula, setPelicula] = useState([]);
   const [Providers, setProviders] = useState([]);
   const [Videos, setVideos] = useState([]);
   const [Director, setDirector] = useState([]);
   const [Cast, setCast] = useState([]);
+  const atu = useAuth();
 
   const GetMovie = async () => {
     let pelicula = await getDocument("Peliculas", id);
@@ -55,12 +58,12 @@ export default function InfoMovie() {
    " document.write('<scr' + 'ipt type='text/javascript' src="+'http' + "(location.protocol === 'https:' ? 's' : '') "+ '://www.profitabledisplaynetwork.com/8f6286b85a45a7f0b714bbe826213e91/invoke.js'+"></scr' + 'ipt>');"+
 "</script>";
 
-  console.log(x)
   }
 
   useEffect(() => {
     GetMovie();
     ads()
+    setLogin(atu.login)
   }, []);
 
   return (
@@ -95,7 +98,6 @@ export default function InfoMovie() {
               <p>
                 Director: {Director.name} <br />
                 Fecha de estreno: {Pelicula.release_date}
- 
                 <br />
                 Generos:
                 {Pelicula.genres &&
@@ -108,38 +110,41 @@ export default function InfoMovie() {
 
       <div className="infoPelicula">
         <div className="informacion">
-
           <div className="Media">
-          <div id="ads2">
+            <div id="ads2"></div>
 
-</div>
-       
-            <h3>Informacion</h3>     
+            <h3>Informacion</h3>
             <hr />
             <div className="VistaGenera">
-            <h3 className=" mt-3 text-decoration-underline">{Pelicula.title}</h3>
-           
+              <h3 className=" mt-3 text-decoration-underline">
+                {Pelicula.title}
+              </h3>
+
+              <p className="descripcion">{Pelicula.overview}</p>
+
+              <h3 className="text-decoration-underline mt-4">Datos</h3>
               <p className="descripcion">
-                
-                {Pelicula.overview}
-                </p>
-            
-            <h3 className="text-decoration-underline mt-4">Datos</h3>
-                <p className="descripcion">
-                  
-
-            <span className="titleGeneral">Director:</span>  {Director.name} <br />
-            <span className="titleGeneral">Fecha de estreno:</span> {Pelicula.release_date}<br />
-            <span className="titleGeneral">Duracion:</span>{Pelicula.runtime}<br />
-            <span className="titleGeneral">Calificacion :</span>{Pelicula.vote_average}<br />
-
-                <span className="titleGeneral">Generos:</span><br/>
+                <span className="titleGeneral">Director:</span> {Director.name}{" "}
+                <br />
+                <span className="titleGeneral">Fecha de estreno:</span>{" "}
+                {Pelicula.release_date}
+                <br />
+                <span className="titleGeneral">Duracion:</span>
+                {Pelicula.runtime}
+                <br />
+                <span className="titleGeneral">Calificacion :</span>
+                {Pelicula.vote_average}
+                <br />
+                <span className="titleGeneral">Generos:</span>
+                <br />
                 <div className="text-center m-2">
                   {Pelicula.genres &&
-                  Pelicula.genres.map((item) => <span key={item.id} class="badge m-1 text-bg-primary">{item.name}</span>)
-                  }
+                    Pelicula.genres.map((item) => (
+                      <span key={item.id} className="badge m-1 text-bg-primary">
+                        {item.name}
+                      </span>
+                    ))}
                 </div>
-                
               </p>
             </div>
           </div>
@@ -158,33 +163,32 @@ export default function InfoMovie() {
               </div>
             </div>
           </div>
-          <Comentarios  id={id} tipo={1}/>
-         <AddComentario id={id} tipo={1}/>
+          <Comentarios id={id} tipo={1} />
+          {Login && (
+              <AddComentario id={id} tipo={1} />
+          )}
         </div>
 
-                      <div className="sidebarCast">
-                      <div className="Cast">
+        <div className="sidebarCast">
+          <div className="Cast">
             <h3>Cast</h3>
             <hr />
             <div className="CastSlider d-flex flex-wrap justify-content-center">
               {Cast && Cast.map((cast) => <Actor key={cast.id} Cast={cast} />)}
             </div>
           </div>
-          
+
           <div id="ads">
-          <div id="container-9e03161175592753552dc46a7c6a447a"></div>
+            <div id="container-9e03161175592753552dc46a7c6a447a"></div>
           </div>
-                      </div>
-        
-        
+        </div>
       </div>
       <div className="PelisSimilares">
-      <div className="Media">
-            <h3>Recomendaciones</h3>
-            <hr />
-            <Recomendaciones Tipo={"Peliculas"}/>
-          </div>
-
+        <div className="Media">
+          <h3>Recomendaciones</h3>
+          <hr />
+          <Recomendaciones Tipo={"Peliculas"} />
+        </div>
       </div>
       <Footer />
     </div>

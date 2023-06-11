@@ -8,12 +8,7 @@ import { useNavigate } from "react-router-dom";
 const navbar = ({ brand, tipo }) => {
   const [loged, setloged] = useState();
 
-  const cont = useContext(context);
   const atu = useAuth();
-  const navigate = useNavigate();
-  console.log(atu);
-
-  //console.log(cont)
   const SetLocalStorage= (tipo)=> {
     localStorage.setItem('Tipo', JSON.stringify(tipo));
   }
@@ -21,12 +16,9 @@ const navbar = ({ brand, tipo }) => {
     const items = JSON.parse(localStorage.getItem('Tipo'));
   }
   const singOut = async () => {
-    console.log("logout");
     LogOut();
-    //setloged(false);
   };
   function init() {
-    console.log(atu.login);
     setloged(atu.login);
   }
   useEffect(() => {
@@ -61,12 +53,12 @@ const navbar = ({ brand, tipo }) => {
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Listas
               </a>
-              <ul class="dropdown-menu  dropdown-menu-dark">
-            <li><button class="dropdown-item" onClick={()=> tipo(1)} >Peliculas</button></li>
-            <li><hr class="dropdown-divider"/></li>
-            <li><button class="dropdown-item" onClick={()=> tipo(2)}>Series</button></li>
-            <li><button class="dropdown-item" onClick={()=> tipo(3)}>Caricaturas</button></li>
-            <li><button class="dropdown-item" onClick={()=> tipo(4)}>Animes</button></li>
+              <ul className="dropdown-menu  dropdown-menu-dark">
+            <li><button className="dropdown-item" onClick={()=> tipo(1)} >Peliculas</button></li>
+            <li><hr className="dropdown-divider"/></li>
+            <li><button className="dropdown-item" onClick={()=> tipo(2)}>Series</button></li>
+            <li><button className="dropdown-item" onClick={()=> tipo(3)}>Caricaturas</button></li>
+            <li><button className="dropdown-item" onClick={()=> tipo(4)}>Animes</button></li>
           </ul>
            </li>
 

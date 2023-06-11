@@ -190,7 +190,7 @@ function InfoSerie() {
         <div className="Media">
           <h3>Temporadas</h3>
           <div className="d-flex justify-content-center">
-            <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button className="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             <i className="fa-solid fa-arrow-down" ></i>
             </button>
           </div>
@@ -234,7 +234,7 @@ function InfoSerie() {
           </div>
           )}
           </div>
-          <Comentarios />
+          <Comentarios id={id} tipo={2}/>
          <AddComentario id={id} tipo={2}/>
         
         
