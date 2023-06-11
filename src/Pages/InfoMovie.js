@@ -8,18 +8,15 @@ import YoutubeEmbed from "../Components/Info/YoutubeEmbed";
 import Footer from "../Components/Footer";
 import Recomendaciones from "../Components/Info/Recomendaciones";
 import Comentarios from "../Components/Info/Comentarios";
-import AddComentario from "../Components/Info/AddComentario";
 import { useAuth } from "../Services/ContexAuth";
 
 export default function InfoMovie() {
   let { id } = useParams();
-  const [Login, setLogin] = useState()
   const [Pelicula, setPelicula] = useState([]);
   const [Providers, setProviders] = useState([]);
   const [Videos, setVideos] = useState([]);
   const [Director, setDirector] = useState([]);
   const [Cast, setCast] = useState([]);
-  const atu = useAuth();
 
   const GetMovie = async () => {
     let pelicula = await getDocument("Peliculas", id);
@@ -63,7 +60,6 @@ export default function InfoMovie() {
   useEffect(() => {
     GetMovie();
     ads()
-    setLogin(atu.login)
   }, []);
 
   return (
@@ -164,9 +160,7 @@ export default function InfoMovie() {
             </div>
           </div>
           <Comentarios id={id} tipo={1} />
-          {Login && (
-              <AddComentario id={id} tipo={1} />
-          )}
+
         </div>
 
         <div className="sidebarCast">
@@ -187,7 +181,7 @@ export default function InfoMovie() {
         <div className="Media">
           <h3>Recomendaciones</h3>
           <hr />
-          <Recomendaciones Tipo={"Peliculas"} />
+          <Recomendaciones Tipo={1} />
         </div>
       </div>
       <Footer />

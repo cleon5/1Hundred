@@ -7,7 +7,8 @@ export default function Recomendaciones({Tipo}) {
   const [Recomendaciones, setRecomendaciones] = useState([]);
 
   const get = async () => {
-    const recomendacion = await getWhere(Tipo);
+    let x = Tipo ==1?"Peliculas":"Series"
+    const recomendacion = await getWhere(x);
     setRecomendaciones(recomendacion);
   };
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function Recomendaciones({Tipo}) {
       <div className="d-flex flex-wrap justify-content-center">
         {Recomendaciones.length > 0
           && Recomendaciones.map((pel) => (
-              <PeliculaComp2 key={pel.id} Pelicula={pel} />
+              <PeliculaComp2 key={pel.id} Pelicula={pel} Tipo={Tipo}/>
             ))
             }
       </div>

@@ -22,7 +22,7 @@ export class Lista extends Component {
     };
   }
   GetLocalStorage(){
-    const item = JSON.parse(localStorage.getItem('Tipo'));
+    const item =  JSON.parse(localStorage.getItem('Tipo'));
     this.setState({Tipo:item})
     return item
   }
@@ -72,7 +72,7 @@ export class Lista extends Component {
               <PeliculaComp2
                 key={pel.id}
                 Pelicula={pel}
-                Tipo={this.props.tipo}
+                Tipo={this.state.Tipo}
                 inclu={
                   this.props.tipo == 1 ? this.context.Movies && this.context.Movies.includes(pel.id)
                   :  this.context.Series && this.context.Series.includes(pel.id)

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "../Constants/Styles.css";
 import ModalQuess from "../Components/ModalQuess";
 import { Link, NavLink } from "react-router-dom";
@@ -11,16 +11,17 @@ const PeliculaComp2 = ({ Pelicula = [], inclu, Tipo, }) => {
     Tipo==1 ? PeliculasVistasUpdate(id): SeriesVistasUpdate(id)
     setinclude(!include)
   };
+  
 
   return (
     <div className={!include ? "card Padin opacity": "card Padin"}>
-      <Link className=" Poster " to={Tipo ==1 ?`/Pelicula/${Pelicula.id}`:`/Serie/${Pelicula.id}`}>
+      <a className=" Poster " href={ Tipo == 1 ?`/Pelicula/${Pelicula.id}`:`/Serie/${Pelicula.id}`}>
         <img
           src={"http://image.tmdb.org/t/p/w500" + Pelicula.poster_path}
           className=" Poster "
           alt="..."
         />
-      </Link>
+      </a>
       <div className="TituloCard">
         <h5 className="cardTitle card-title ">{Tipo==1 ?Pelicula.original_title : Pelicula.original_name} </h5>
         <h6 className="card-subtitle mb-2">{Pelicula.vote_average}</h6>

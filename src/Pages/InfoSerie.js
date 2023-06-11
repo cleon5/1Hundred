@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import "../Constants/infoMovie.css";
-import DisponibleComp from "../Components/Info/DisponibleComp";
 import { getDocument, getMovie } from "../Services/FirebaseGettters";
 import Actor from "../Components/Info/Actor";
 import YoutubeEmbed from "../Components/Info/YoutubeEmbed";
 import Footer from "../Components/Footer";
 import Recomendaciones from "../Components/Info/Recomendaciones";
-import AddComentario from "../Components/Info/AddComentario";
 import Comentarios from "../Components/Info/Comentarios";
+import { useAuth } from "../Services/ContexAuth";
 
 function InfoSerie() {
   let { id } = useParams();
@@ -19,6 +18,7 @@ function InfoSerie() {
   const [Director, setDirector] = useState([]);
   const [Cast, setCast] = useState([]);
   const [Seasons, setSeasons] = useState([]);
+
 
   const getSerie = async () => {
     let Serie = await getDocument("Series", id);
@@ -234,8 +234,7 @@ function InfoSerie() {
           </div>
           )}
           </div>
-          <Comentarios id={id} tipo={2}/>
-         <AddComentario id={id} tipo={2}/>
+          <Comentarios id={id} tipo={2} />
         
         
         </div>
@@ -246,7 +245,7 @@ function InfoSerie() {
           
           <h3>Recomendaciones</h3>
           <hr />
-          <Recomendaciones Tipo={"Series"} />
+          <Recomendaciones Tipo={2} />
         </div>
       </div>
       <Footer />
