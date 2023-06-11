@@ -19,8 +19,19 @@ function InfoSerie() {
   const [Cast, setCast] = useState([]);
   const [Seasons, setSeasons] = useState([]);
 
+  const [Id, setId] = useState()
 
-  const getSerie = async () => {
+  if(id!=Id){
+    setId(id)
+    getSerie()
+    window.scroll({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    });
+  }
+
+  async function getSerie(){
     let Serie = await getDocument("Series", id);
     setSerie(Serie);
     
@@ -74,7 +85,7 @@ function InfoSerie() {
   }, []);
   return (
     <div>
-      <Navbar brand="1-Hundred Peliculas" />
+      <Navbar brand="1-Hundred Series" />
       <div className="peliData">
         <div className="Portada">
           <img

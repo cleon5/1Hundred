@@ -15,13 +15,13 @@ const PeliculaComp2 = ({ Pelicula = [], inclu, Tipo, }) => {
 
   return (
     <div className={!include ? "card Padin opacity": "card Padin"}>
-      <a className=" Poster " href={ Tipo == 1 ?`/Pelicula/${Pelicula.id}`:`/Serie/${Pelicula.id}`}>
+      <NavLink className=" Poster " to={ Tipo == 1 ?`/Pelicula/${Pelicula.id}`:`/Serie/${Pelicula.id}`}>
         <img
           src={"http://image.tmdb.org/t/p/w500" + Pelicula.poster_path}
           className=" Poster "
           alt="..."
         />
-      </a>
+      </NavLink>
       <div className="TituloCard">
         <h5 className="cardTitle card-title ">{Tipo==1 ?Pelicula.original_title : Pelicula.original_name} </h5>
         <h6 className="card-subtitle mb-2">{Pelicula.vote_average}</h6>

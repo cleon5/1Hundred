@@ -17,8 +17,19 @@ export default function InfoMovie() {
   const [Videos, setVideos] = useState([]);
   const [Director, setDirector] = useState([]);
   const [Cast, setCast] = useState([]);
+  const [Id, setId] = useState()
 
-  const GetMovie = async () => {
+  if(id!=Id){
+    setId(id)
+    GetMovie()
+    window.scroll({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    });
+  }
+
+  async function GetMovie(){
     let pelicula = await getDocument("Peliculas", id);
     setPelicula(pelicula);
 
@@ -60,6 +71,7 @@ export default function InfoMovie() {
   useEffect(() => {
     GetMovie();
     ads()
+    setId(id)
   }, []);
 
   return (
